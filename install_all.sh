@@ -1,17 +1,8 @@
 #!/bin/sh
+SRC_DIR="${HOME}/dotfiles/install_scripts/*"
 
-SRC_DIR="${HOME}/dotfiles/"
-VSCODE_DIR="${HOME}/.config/Code/User"
-
-rm "${VSCODE_DIR}/settings.json"
-ln -s "${SRC_DIR}/settings.json" "${VSCODE_DIR}/settings.json"
-rm "${VSCODE_DIR}/keybindings.json"
-ln -s "${SRC_DIR}/keybindings.json" "${VSCODE_DIR}/keybindings.json"
-
-# install extentions
-cat "${SRC_DIR}/extensions" | while read line
+# All install script files execute
+for file in $SRC_DIR;
 do
- code --install-extension $line
+  bash "${file}"
 done
-
-code --list-extensions > "${SRC_DIR}/extensions"
