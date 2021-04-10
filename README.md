@@ -1,5 +1,4 @@
 # Dotfiles
-> shell: fish
 
 ## Environment
 | | |
