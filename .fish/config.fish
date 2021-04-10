@@ -1,7 +1,4 @@
 alias dev-browser="chromium-browser --disable-web-security --user-data-dir '/tmp/chrome'"
-alias ssh-tdpv1="ssh -i ~/.ssh/tdpv1.pem ubuntu@13.113.169.204"
-alias ssh-tdpv2="ssh -i ~/.ssh/tdpv2.pem ubuntu@ttt-program-test.atomsolutions.jp"
-alias ssh-ttt-api="ssh -i ~/.ssh/ttt-api.pem ubuntu@api.atom-solutions.jp"
 alias dc="docker-compose"
 alias p="python"
 alias pm="python manage.py"
