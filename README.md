@@ -1,6 +1,12 @@
 # Dotfiles
 > shell: fish
 
+## Environment
+| | |
+|---|-----|
+|OS|Linux (Ubuntu 20.04)|
+|Shell| fish|
+
 ## Setup
 ```bash
 # Clone this repository
