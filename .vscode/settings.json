@@ -1,6 +1,5 @@
 {
-    "window.zoomLevel": 1,
-    "[vue]": {
+  "[vue]": {
       "editor.tabSize": 2
     },
     "explorer.confirmDragAndDrop": false,
@@ -13,5 +12,21 @@
     "workbench.colorTheme": "1984 - Fancy",
     "todo-tree.tree.showScanModeButton": false,
     "git.enableSmartCommit": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 4,
+    "workbench.editorAssociations": [
+      {
+        "viewType": "jupyter.notebook.ipynb",
+        "filenamePattern": "*.ipynb"
+      }
+    ],
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "[python]": {
+
+      "gitlens.codeLens.symbolScopes": [
+        "!Module"
+      ]
+    },
+    "window.zoomLevel": 1,
+    "workbench.editor.showTabs": true
 }
