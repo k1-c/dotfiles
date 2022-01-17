@@ -1,22 +1,20 @@
+# Debug to disable CORS Policy
 alias dev-browser="chromium-browser --disable-web-security --user-data-dir '/tmp/chrome'"
+# Docker
 alias dc="docker-compose"
+# Python
 alias p="python"
-alias pm="python manage.py"
-alias pmr="python manage.py runserver"
-alias g="git"
-alias ga="git add"
-alias gaa="git add -A"
-alias gc="git commit -m"
-alias gco="git checkout"
-alias st="git status"
-alias stt="git status -uno"
-alias push="git push"
-alias pull="git pull"
+# Swich current branch by peco
+alias gco="git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/##' | perl -nle 'print if !$c{$_}++' | peco | xargs git checkout"
+# Switch GitHub Repositories
+alias gr="cd (ghq root)/(ghq list | peco)"
+# vim less
+alias less="/usr/share/vim/vim81/macros/less.sh"
 
 ## Golang
 
 set -x GOPATH $HOME/.go
-set -x PATH /usr/local/go/bin $PATH
+set -x PATH /usr/local/go/bin $HOME/.go/bin $PATH
 set -x GO111MODULE on
 
 ## Python (pyenv)
@@ -36,3 +34,14 @@ end
 if command -v pyenv 1>/dev/null 2>&1
   pyenv init - | source
 end
+
+# direnv
+direnv hook fish | source
+
+# rbenv
+set -x PATH $HOME/.rbenv/bin $PATH
+status --is-interactive; and source (rbenv init -|psub)
+
+# eb cli
+set -x PATH $HOME/.ebcli-virtual-env/executables $PATH
+
