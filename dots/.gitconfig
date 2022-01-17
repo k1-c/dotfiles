@@ -35,11 +35,5 @@
 	# Automatically correct and execute mistyped commands.
 	autocorrect = 1
 
-[includeIf "gitdir:~/dev/git/github.com/"]
-  path = ~/.gitconfig_shunk
-
-[includeIf "gitdir:~/dev/git/github-yep/"]
-  path = ~/.gitconfig_yep
-
 [include]
   path = ~/.gitconfig.local
