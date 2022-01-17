@@ -3,7 +3,7 @@
 ## Environment
 | | |
 |---|-----|
-|OS|Linux (Ubuntu 20.04)|
+|OS (Base)|Linux (Ubuntu 20.04)|
 |Shell| fish|
 
 ## Setup
@@ -20,6 +20,12 @@ bash install_all.sh
 To install certain config:
 ```bash
 # ex.
-bash install_scripts/vscode.sh
+bash install_scripts/01_install_dotfiles.sh
 ```
 
+## Tools
+- fish
+- vim
+- ghq
+- peco
+- vscode

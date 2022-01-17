@@ -9,6 +9,7 @@ dweizhe.docthis-customize-tags
 eamodio.gitlens
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
+formulahendry.auto-close-tag
 garym.nim-alt
 GraphQL.vscode-graphql
 Gruntfuggly.todo-tree
@@ -30,6 +31,7 @@ ms-toolsai.jupyter-keymap
 ms-toolsai.jupyter-renderers
 ms-vscode-remote.remote-containers
 ms-vscode.cpptools
+ms-vscode.live-server
 ms-vsliveshare.vsliveshare
 mtxr.sqltools
 mtxr.sqltools-driver-mysql
