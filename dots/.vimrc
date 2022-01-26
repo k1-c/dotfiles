@@ -14,7 +14,11 @@ set showcmd
 " 折り返さない
 set nowrap
 " 通常のyank / pasteでClipboardを有効にする
-set clipboard=unnamedplus
+if has('mac')
+  set clipboard=unnamed
+elseif has('linux')
+  set clipboard=unnamedplus
+endif
 
 " 見た目系
 " 行番号を表示
@@ -41,7 +45,7 @@ syntax enable
 
 
 " Tab系
-" 不可視文字を可視化(タブが「▸-」と表示される)
+
 set list listchars=tab:\▸\-
 " Tab文字を半角スペースにする
 set expandtab
