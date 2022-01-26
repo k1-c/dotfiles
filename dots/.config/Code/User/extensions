@@ -40,12 +40,14 @@ mtxr.sqltools-driver-sqlite
 neilding.language-liquid
 octref.vetur
 openhab.openhab
+Orta.vscode-jest
 PKief.material-icon-theme
 Prisma.prisma
 rebornix.ruby
 ritwickdey.LiveServer
 rvest.vs-code-prettier-eslint
 scala-lang.scala
+shd101wyy.markdown-preview-enhanced
 sissel.shopify-liquid
 streetsidesoftware.code-spell-checker
 tht13.python
@@ -54,3 +56,4 @@ tshamz.liquid-snippet-include-detection
 vscodevim.vim
 waderyan.gitblame
 wingrunr21.vscode-ruby
+yoyo930021.vuter

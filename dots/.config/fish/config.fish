@@ -35,9 +35,6 @@ if command -v pyenv 1>/dev/null 2>&1
   pyenv init - | source
 end
 
-# direnv
-direnv hook fish | source
-
 # rbenv
 set -x PATH $HOME/.rbenv/bin $PATH
 status --is-interactive; and source (rbenv init -|psub)
