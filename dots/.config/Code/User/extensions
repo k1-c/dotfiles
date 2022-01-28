@@ -1,7 +1,9 @@
 amiralizadeh9480.laravel-extra-intellisense
+austenc.laravel-blade-spacer
 bmalehorn.vscode-fish
 bmewburn.vscode-intelephense-client
 castwide.solargraph
+cjhowe7.laravel-blade
 Dart-Code.dart-code
 Dart-Code.flutter
 dbaeumer.vscode-eslint
@@ -37,8 +39,10 @@ mtxr.sqltools
 mtxr.sqltools-driver-mysql
 mtxr.sqltools-driver-pg
 mtxr.sqltools-driver-sqlite
+neilbrayfield.php-docblocker
 neilding.language-liquid
 octref.vetur
+onecentlin.laravel5-snippets
 openhab.openhab
 Orta.vscode-jest
 PKief.material-icon-theme
@@ -46,9 +50,11 @@ Prisma.prisma
 rebornix.ruby
 ritwickdey.LiveServer
 rvest.vs-code-prettier-eslint
+ryannaddy.laravel-artisan
 scala-lang.scala
 shd101wyy.markdown-preview-enhanced
 sissel.shopify-liquid
+stef-k.laravel-goto-controller
 streetsidesoftware.code-spell-checker
 tht13.python
 toba.vsfire
