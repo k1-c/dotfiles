@@ -1,3 +1,7 @@
+# Mac
+if test identify_os = "mac"
+  set -x PATH /opt/homebrew/bin $PATH
+end
 # Debug to disable CORS Policy
 alias dev-browser="chromium-browser --disable-web-security --user-data-dir '/tmp/chrome'"
 # Docker
