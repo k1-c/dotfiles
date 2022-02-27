@@ -23,7 +23,7 @@ set -x PATH $PYENV_ROOT/bin $PATH
 
 ## Git Utilities
 
-set PROTECT_BRANCHES 'master|develop'
+set PROTECT_BRANCHES 'main|master|develop'
 
 function remove-merged-branch
     git fetch --prune
@@ -41,6 +41,13 @@ direnv hook fish | source
 # rbenv
 set -x PATH $HOME/.rbenv/bin $PATH
 status --is-interactive; and source (rbenv init -|psub)
+
+# phpenv
+set -x PHPENV_ROOT $HOME/.phpenv
+if test -d "$HOME/.phpenv"
+  set -x PATH $HOME/.phpenv/bin $PATH
+  status --is-interactive; and source (phpenv init -|psub)
+end
 
 # eb cli
 set -x PATH $HOME/.ebcli-virtual-env/executables $PATH
