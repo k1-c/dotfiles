@@ -28,4 +28,5 @@ bash install_scripts/01_install_dotfiles.sh
 - vim
 - ghq
 - peco
+- exa
 - vscode
