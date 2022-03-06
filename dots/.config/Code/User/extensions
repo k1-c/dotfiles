@@ -13,11 +13,13 @@ EditorConfig.EditorConfig
 esbenp.prettier-vscode
 formulahendry.auto-close-tag
 garym.nim-alt
+gitkraken.gitkraken-authentication
 GraphQL.vscode-graphql
 Gruntfuggly.todo-tree
 hediet.vscode-drawio
 janisdd.vscode-edit-csv
 juanmnl.vscode-theme-1984
+junstyle.php-cs-fixer
 kenhowardpdx.vscode-gist
 killalau.vscode-liquid-snippets
 liximomo.sftp
