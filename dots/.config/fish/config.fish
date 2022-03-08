@@ -15,7 +15,7 @@ alias p="python"
 # Swich current branch by peco
 alias gco="git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/##' | perl -nle 'print if !$c{$_}++' | peco | xargs git checkout"
 # Switch GitHub Repositories
-alias gr="cd (ghq root)/(ghq list | peco)"
+alias j="cd (ghq root)/(ghq list | peco)"
 # vim less
 alias less="/usr/share/vim/vim81/macros/less.sh"
 # Exa
