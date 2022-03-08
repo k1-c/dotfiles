@@ -1,6 +1,7 @@
 " Plugins
 call jetpack#begin()
   Jetpack 'preservim/nerdtree'
+  Jetpack 'skanehira/preview-markdown.vim'
 call jetpack#end()
 
 " setting
