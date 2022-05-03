@@ -16,8 +16,11 @@ alias p="python"
 alias gco="git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 's/^\h+//g' | perl -pe 's#^remotes/origin/##' | perl -nle 'print if !$c{$_}++' | peco | xargs git checkout"
 # Switch GitHub Repositories
 alias j="cd (ghq root)/(ghq list | peco)"
-# vim less
-alias less="/usr/share/vim/vim81/macros/less.sh"
+# NeoVim
+alias vi="nvim"
+alias vim="nvim"
+alias view="nvim -R"
+alias vimdiff="nvim -d"
 # Exa
 alias ll="exa -l -g --icons"
 alias lla="ll -a"

@@ -1,3 +1,7 @@
+if &compatible
+  set nocompatible
+endif
+
 " setting
 "文字コードをUFT-8に設定
 " set fenc=utf-8
@@ -14,12 +18,11 @@ set showcmd
 " 折り返さない
 set nowrap
 " 通常のyank / pasteでClipboardを有効にする
-"  if has('mac')
-"    set clipboard=unnamed
-"  elseif has('linux')
-"    set clipboard=unnamed
-"  endif
-set clipboard=unnamed
+if has('mac')
+  set clipboard=unnamed
+elseif has('linux')
+  set clipboard=unnamed
+endif
 
 " 見た目系
 " 行番号を表示
@@ -72,7 +75,6 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " マウス系
 set mouse=a
-set ttymouse=xterm2
 
 " Disable Allow Keys
 noremap <Up> <Nop>
