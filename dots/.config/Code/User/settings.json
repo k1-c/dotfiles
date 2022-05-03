@@ -22,7 +22,8 @@
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "[python]": {
-    "gitlens.codeLens.symbolScopes": ["!Module"]
+    "gitlens.codeLens.symbolScopes": ["!Module"],
+    "editor.tabSize": 4
   },
   "window.zoomLevel": 1,
   "python.venvFolders": ["app/"],
@@ -69,4 +70,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "php-cs-fixer.lastDownload": 1649985339096,
 }
