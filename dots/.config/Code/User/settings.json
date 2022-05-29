@@ -1,6 +1,6 @@
 {
   "vim.vimrc.enable": true,
-  "vim.vimrc.path": "~/.vimrc",
+  "vim.vimrc.path": "~/.config/nvim/init.vim",
   "[vue]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -71,5 +71,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1649985339096,
+  "php-cs-fixer.lastDownload": 1652001165716,
+  "editor.formatOnSave": true,
 }
