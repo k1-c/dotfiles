@@ -25,7 +25,6 @@
     "gitlens.codeLens.symbolScopes": ["!Module"],
     "editor.tabSize": 4
   },
-  "window.zoomLevel": 1,
   "python.venvFolders": ["app/"],
   "python.languageServer": "Pylance",
   "python.analysis.extraPaths": ["app"],
@@ -33,10 +32,12 @@
     "aspida",
     "BTOB",
     "coinback",
+    "composables",
     "csrf",
     "dotfiles",
     "frourio",
     "GMAIL",
+    "gtag",
     "integritis",
     "launchconfiguration",
     "Nuxt",
@@ -71,6 +72,16 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1652001165716,
+  "php-cs-fixer.lastDownload": 1664087915814,
   "editor.formatOnSave": true,
+  "explorer.confirmDelete": false,
+  "volar.codeLens.scriptSetupTools": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 1
 }

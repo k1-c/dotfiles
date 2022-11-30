@@ -1,16 +1,40 @@
-if &compatible
+if&compatible
   set nocompatible
 endif
+
+" Fishだと使えないプラグインがあるのでZshに変更しておく
+set shell=/bin/zsh
+let $SHELL = "/bin/zsh"
 
 " Plugins
 call jetpack#begin()
 call jetpack#add('neoclide/coc.nvim', { 'branch': 'release' })
 call jetpack#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+call jetpack#add('sheerun/vim-polyglot')
+call jetpack#add('vim-airline/vim-airline')
+call jetpack#add('vim-airline/vim-airline-theme')
+call jetpack#add('airblade/vim-gitgutter')
+call jetpack#add('kyoz/purify', { 'rtp': 'vim' })
+call jetpack#add('rcarriga/nvim-notify')
+call jetpack#add('bluz71/vim-moonfly-colors')
+call jetpack#add('beikome/cosme.vim')
 call jetpack#end()
 
+" color scheme
+syntax on
+colorscheme cosme
+
+" 背景色を透過する
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+highlight LineNr ctermbg=none
+highlight Folded ctermbg=none
+highlight EndOfBuffer ctermbg=none
+
 " setting
-" Leaderを.に設定
-let mapleader = "."
+" Leaderを<space>に設定
+let mapleader = "\<space>"
+
 "文字コードをUFT-8に設定
 " set fenc=utf-8
 " バックアップファイルを作らない
@@ -54,7 +78,6 @@ nnoremap j gj
 nnoremap k gk
 " シンタックスハイライトの有効化
 syntax enable
-
 
 " Tab系
 
@@ -105,6 +128,8 @@ nnoremap <C-l> <C-w>l
 
 " :Format でフォーマッタ実行
 command! -nargs=0 Format :call CocAction('format')
+" <leader> + iでも実行
+nnoremap <leader>i :Format<CR>
 
 " :LintfixでESLintの自動修正
 command! -nargs=0 Lintfix :call CocCommand eslint.executeAutofix
@@ -156,6 +181,8 @@ endif
 " coc-fzf-preview
 nmap <Leader>f [fzf-p]
 xmap <Leader>f [fzf-p]
+" coc-fzf-preview project_mru alias
+nmap <Leader>p <Cmd>CocCommand fzf-preview.FromResources project_mru git<CR>
 
 nnoremap <silent> [fzf-p]p     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
 nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
@@ -172,4 +199,11 @@ xnoremap          [fzf-p]gr    "sy:CocCommand   fzf-preview.ProjectGrep<Space>-F
 nnoremap <silent> [fzf-p]t     :<C-u>CocCommand fzf-preview.BufferTags<CR>
 nnoremap <silent> [fzf-p]q     :<C-u>CocCommand fzf-preview.QuickFix<CR>
 nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
+
+" coc-explorer
+nmap <Leader>e <Cmd>CocCommand explorer<CR>
+
+" coc-pair
+" 改行時にカーソル位置を調整する
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
