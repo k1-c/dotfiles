@@ -182,7 +182,7 @@ endif
 nmap <Leader>f [fzf-p]
 xmap <Leader>f [fzf-p]
 " coc-fzf-preview project_mru alias
-nmap <Leader>p <Cmd>CocCommand fzf-preview.FromResources project_mru git<CR>
+nmap <Leader>p <Cmd>CocCommand fzf-preview.FromResources buffer project_mru<CR>
 
 nnoremap <silent> [fzf-p]p     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
 nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
