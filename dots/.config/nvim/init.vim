@@ -115,9 +115,9 @@ noremap <Right> <Nop>
 " Allow jj to escape insert mode
 inoremap <silent> jj <ESC>
 
-" 1で行頭, 0で行末へ
-nmap 1 ^
-nmap 0 $
+" Hで行頭, Lで行末へ
+nmap H ^
+nmap L $
 
 " Ctrl + hjkl でウィンドウ間を移動
 nnoremap <C-h> <C-w>h

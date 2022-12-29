@@ -1,12 +1,12 @@
 " Allow jj to escape insert mode
-inoremap <silent> jj <ESC>
+imap jj <Esc>
 
-# Leaderをスペースに変更
+" Leaderをスペースに変更
 let mapleader = "\<space>"
 
-# クリップボードを有効化
+" クリップボードを有効化
 set clipboard=unnamed
 
-" 1で行頭, 0で行末へ
-nmap 1 ^
-nmap 0 $
+" Hで行頭, Lで行末へ
+nmap H ^
+nmap L $
