@@ -11,6 +11,7 @@ call jetpack#begin()
 call jetpack#add('neoclide/coc.nvim', { 'branch': 'release' })
 call jetpack#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 call jetpack#add('sheerun/vim-polyglot')
+call jetpack#add('pantharshit00/vim-prisma')
 call jetpack#add('vim-airline/vim-airline')
 call jetpack#add('vim-airline/vim-airline-theme')
 call jetpack#add('airblade/vim-gitgutter')
@@ -80,7 +81,6 @@ nnoremap k gk
 syntax enable
 
 " Tab系
-
 set list listchars=tab:\▸\-
 " Tab文字を半角スペースにする
 set expandtab
@@ -88,7 +88,6 @@ set expandtab
 set tabstop=2
 " 行頭でのTab文字の表示幅
 set shiftwidth=2
-
 
 " 検索系
 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
