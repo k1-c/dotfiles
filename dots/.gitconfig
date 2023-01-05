@@ -38,5 +38,5 @@
 [include]
   path = ~/.gitconfig.local
 [user]
-	name = shunk-py
+	name = k1-c
 	email = shun.kimura@integritis.io
