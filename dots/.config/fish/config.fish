@@ -89,3 +89,6 @@ if [ -f '/opt/google-cloud-sdk/path.fish.inc' ]; . '/opt/google-cloud-sdk/path.f
 # Config Alias
 alias vimconf="vim ~/.config/nvim/init.vim"
 alias shconf="vim ~/.config/fish/config.fish"
+
+# Personal Scripts PATH
+set -x PATH "$HOME/dev/scripts" $PATH

@@ -180,8 +180,6 @@ endif
 " coc-fzf-preview
 nmap <Leader>f [fzf-p]
 xmap <Leader>f [fzf-p]
-" coc-fzf-preview project_mru alias
-nmap <Leader>p <Cmd>CocCommand fzf-preview.FromResources buffer project_mru<CR>
 
 nnoremap <silent> [fzf-p]p     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
 nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
@@ -202,7 +200,20 @@ nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
 " coc-explorer
 nmap <Leader>e <Cmd>CocCommand explorer<CR>
 
+" coc-list files
+nmap <Leader>p :CocList files<CR>
+
 " coc-pair
 " 改行時にカーソル位置を調整する
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+" coc show documentation on hover
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
