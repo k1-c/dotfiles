@@ -92,3 +92,7 @@ alias shconf="vim ~/.config/fish/config.fish"
 
 # Personal Scripts PATH
 set -x PATH "$HOME/dev/scripts" $PATH
+
+# Volta
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
