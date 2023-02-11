@@ -1,0 +1,17 @@
+{
+  "eslint.autoFixOnSave": false,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "jsx",
+    "tsx",
+    "json"
+  ],
+  "explorer.file": {
+    "showHiddenFiles": true
+  },
+  "coc.preferences.formatOnType": true
+}

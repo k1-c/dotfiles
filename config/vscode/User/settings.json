@@ -1,0 +1,87 @@
+{
+  "vim.vimrc.enable": true,
+  "vim.vimrc.path": "~/.config/nvim/init.vim",
+  "[vue]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.confirmDragAndDrop": false,
+  "search.followSymlinks": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "hediet.vscode-drawio.offline": false,
+  "workbench.editor.enablePreview": false,
+  "files.autoSave": "afterDelay",
+  "files.trimTrailingWhitespace": true,
+  "workbench.colorTheme": "1984",
+  "todo-tree.tree.showScanModeButton": false,
+  "git.enableSmartCommit": true,
+  "editor.tabSize": 2,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "[python]": {
+    "gitlens.codeLens.symbolScopes": ["!Module"],
+    "editor.tabSize": 4
+  },
+  "python.venvFolders": ["app/"],
+  "python.languageServer": "Pylance",
+  "python.analysis.extraPaths": ["app"],
+  "cSpell.userWords": [
+    "aspida",
+    "BTOB",
+    "coinback",
+    "composables",
+    "csrf",
+    "dotfiles",
+    "frourio",
+    "GMAIL",
+    "gtag",
+    "integritis",
+    "launchconfiguration",
+    "Nuxt",
+    "nuxtjs",
+    "persistedstate",
+    "signup",
+    "vuetify",
+    "Vuex",
+    "Waon"
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "ruby.useLanguageServer": true,
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": false
+    }
+  },
+  "ruby.rubocop.executePath": "/home/shunk/.rbenv/shims/",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.format": "rubocop",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "hediet.vscode-drawio.theme": "atlas",
+  "bracketPairColorizer.depreciation-notice": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "php-cs-fixer.lastDownload": 1664087915814,
+  "editor.formatOnSave": true,
+  "explorer.confirmDelete": false,
+  "volar.codeLens.scriptSetupTools": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 1
+}
