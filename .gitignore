@@ -1,2 +1,5 @@
 # local fish configs
 **/*.local.fish
+
+# backup
+.backup

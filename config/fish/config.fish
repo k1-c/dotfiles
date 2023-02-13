@@ -1,8 +1,3 @@
-# Mac
-if test (identify_os) = "mac"
-  set -x PATH /opt/homebrew/bin $PATH
-end
-
 # Set Nerd Fonts
 set -g theme_nerd_fonts yes
 
@@ -88,6 +83,7 @@ if [ -f '/opt/google-cloud-sdk/path.fish.inc' ]; . '/opt/google-cloud-sdk/path.f
 
 # Config Alias
 alias vimconf="vim ~/.config/nvim/init.vim"
+alias tmuxconf="vim ~/.tmux.conf"
 alias shconf="vim ~/.config/fish/config.fish"
 
 # Personal Scripts PATH
@@ -96,3 +92,6 @@ set -x PATH "$HOME/dev/scripts" $PATH
 # Volta
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
+
+# Neovide
+alias vide="neovide"

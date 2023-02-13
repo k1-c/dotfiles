@@ -9,7 +9,9 @@ sudo apt install -y curl \
     libxcursor-dev
 
 # Install Rust if not installed
-curl --proto '=https' --tlsv1.2 -sSf "https://sh.rustup.rs" | sh
+if !(type cargo >/dev/null 2>&1); then
+    curl --proto '=https' --tlsv1.2 -sSf "https://sh.rustup.rs" | sh
+fi
 
 # Fetch and build
 cargo install --git https://github.com/neovide/neovide
