@@ -1,33 +1,26 @@
 # Dotfiles
 
+dotfiles for k1-c
+
 ## Environment
 | | |
 |---|-----|
-|OS (Base)|Linux (Ubuntu 20.04)|
+|OS (Base)|Linux (Ubuntu ^20.04)|
 |Shell| fish|
 
 ## Setup
 ```bash
 # Clone this repository
 git clone https://github.com/shunk-py/dotfiles.git
-# Grant execute permission
-chmod -R +x install_scripts/ install_all.sh
+# All commands in Makefile
+less Makefile
 ```
-To install all configs at once:
+To setup all environments and configs at once:
 ```bash
-bash install_all.sh
+make all
 ```
 To install certain config:
 ```bash
 # ex.
-bash install_scripts/01_install_dotfiles.sh
+make neovide
 ```
-
-## Tools
-- Fish Shell
-- NeoVim
-- Tmux
-- ghq
-- peco
-- exa
-- VSCode
