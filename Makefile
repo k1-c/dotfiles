@@ -14,8 +14,12 @@ config:
 rust:
 	bash ./env/rust/install.sh
 
+.PHONY: deno
+deno:
+	bash ./env/deno/install.sh
+
 .PHONY: neovim
-neovide:
+neovim:
 	bash ./env/tools/neovim/install.sh
 
 .PHONY: neovide
@@ -27,9 +31,11 @@ shellspec:
 	bash ./env/tools/shellspec/install.sh
 
 .PHONY: vscode
+vscode:
 	bash ./scripts/install_vscode_extension.sh
 
 .PHONY: fonts
+fonts:
 	bash ./scripts/install_nerd_fonts.sh
 
 .PHONY: tools

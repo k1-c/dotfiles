@@ -7,17 +7,20 @@ mkdir -p $backup_dir
 
 # arg1: origin file path, arg2: target path to symlink
 function register() {
-  origin=$1
-  target=$2
+  origin="$1"
+  target="$2"
   # file exists and not symlink
-  if [ -f $target ] && [ ! -h $target ]; then mv $target $backup_dir; fi
+  if [ -f "${target}" ] && [ ! -h "${target}" ]; then mv "${target}" "${backup_dir}"; fi
   # if it's a symlink, remove old file and place new symlink
-  if [ -h $target ]; then rm $target; fi
-  ln -s $origin $target
+  if [ -h "${target}" ]; then rm "${target}"; fi
+  ln -s "${origin}" "${target}"
+  echo "Replace and link ${target} to ${origin}"
 }
 
-# TODO: Obsidian vim rc
 # TODO: Place Symlinks recursively each directory
+
+# TODO: Make obsidian vault path to dynamic
+obsidian_vimrc_path="${HOME}/Documents/Obsidian Vault/.obsidian.vimrc"
 
 # git
 register ${src_path}/git/.gitconfig ${HOME}/.gitconfig
@@ -44,17 +47,20 @@ register ${src_path}/nvim/.vim/autoload/jetpack.vim ${HOME}/.vim/autoload/jetpac
 # tmux
 register ${src_path}/tmux/.tmux.conf ${HOME}/.tmux.conf
 
+# obsidian
+register ${src_path}/obsidian/.obsidian.vimrc "$obsidian_vimrc_path"
+
 # ulauncher
-if [ ! -d ${HOME}/.config/ulauncher ]; then mkdir -p ${HOME}/.config/ulauncher; fi
-register ${src_path}/.config/ulauncher/extensions.json ${HOME}/.config/ulauncher/extensions.json
-register ${src_path}/.config/ulauncher/settings.json ${HOME}/.config/ulauncher/settings.json
-register ${src_path}/.config/ulauncher/shortcuts.json ${HOME}/.config/ulauncher/shortcuts.json
+if [ ! -d ${HOME}/ulauncher ]; then mkdir -p ${HOME}/.config/ulauncher; fi
+register ${src_path}/ulauncher/extensions.json ${HOME}/.config/ulauncher/extensions.json
+register ${src_path}/ulauncher/settings.json ${HOME}/.config/ulauncher/settings.json
+register ${src_path}/ulauncher/shortcuts.json ${HOME}/.config/ulauncher/shortcuts.json
 
 # vscode
 if [ ! -d ${HOME}/.config/Code/User ]; then mkdir -p ${HOME}/.config/Code/User; fi
-register ${src_path}/.config/Code/User/extensions ${HOME}/.config/Code/User/extensions
-register ${src_path}/.config/Code/User/keybindings.json ${HOME}/.config/Code/User/keybindings.json
-register ${src_path}/.config/Code/User/settings.json ${HOME}/.config/Code/User/settings.json
+register ${src_path}/vscode/Code/User/extensions ${HOME}/.config/Code/User/extensions
+register ${src_path}/vscode/Code/User/keybindings.json ${HOME}/.config/Code/User/keybindings.json
+register ${src_path}/vscode/Code/User/settings.json ${HOME}/.config/Code/User/settings.json
 
 # Delete backup directory when empty
 if [ -z "`ls $backup_dir`" ]; then rm -r $backup_dir; fi
