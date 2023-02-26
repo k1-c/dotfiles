@@ -9,24 +9,24 @@
         "run_without_argument": false,
         "added": 1672723552.7707245
     },
-    "01fc6114-f167-466f-95ac-79887f236408": {
-        "id": "01fc6114-f167-466f-95ac-79887f236408",
-        "name": "Stack Overflow",
-        "keyword": "so",
-        "cmd": "https://stackoverflow.com/search?q=%s",
-        "icon": "/usr/share/ulauncher/media/stackoverflow-icon.svg",
-        "is_default_search": true,
-        "run_without_argument": false,
-        "added": 1672723552.770752
+    "3aeb8ae7-9355-4186-a952-0d19b229b216": {
+        "id": "3aeb8ae7-9355-4186-a952-0d19b229b216",
+        "name": "Deno Running Test",
+        "keyword": "deno",
+        "cmd": "#! /usr/bin/env -S deno run --allow-all\nimport $ from \"https://deno.land/x/dax/mod.ts\";\nawait $`obsidian`;",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1677427143.0940058
     },
-    "ecaf3091-819e-491f-b5f6-c445c414e495": {
-        "id": "ecaf3091-819e-491f-b5f6-c445c414e495",
-        "name": "Wikipedia",
-        "keyword": "wiki",
-        "cmd": "https://en.wikipedia.org/wiki/%s",
-        "icon": "/usr/share/ulauncher/media/wikipedia-icon.png",
-        "is_default_search": true,
-        "run_without_argument": false,
-        "added": 1672723552.7707717
+    "a6deaa90-92c7-480a-9c94-8cd7ee14b0aa": {
+        "id": "a6deaa90-92c7-480a-9c94-8cd7ee14b0aa",
+        "name": "Bash Test",
+        "keyword": "bash",
+        "cmd": "#!/usr/bin/bash\nfigma-linux",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": true,
+        "added": 1677427752.8034015
     }
 }

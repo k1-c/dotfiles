@@ -13,5 +13,7 @@
   "explorer.file": {
     "showHiddenFiles": true
   },
-  "coc.preferences.formatOnType": true
+  "coc.preferences.formatOnType": true,
+  "deno.enable": true,
+  "deno.lint": true
 }
