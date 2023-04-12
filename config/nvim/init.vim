@@ -20,6 +20,7 @@ call jetpack#add('rcarriga/nvim-notify')
 call jetpack#add('bluz71/vim-moonfly-colors')
 call jetpack#add('beikome/cosme.vim')
 call jetpack#add('phaazon/hop.nvim')
+call jetpack#add('github/copilot.vim')
 call jetpack#end()
 
 " color scheme

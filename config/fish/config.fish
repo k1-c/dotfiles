@@ -16,6 +16,9 @@ alias gco="git branch -a --sort=-authordate | grep -v -e '->' -e '*' | perl -pe 
 # Switch GitHub Repositories
 alias j="cd (ghq root)/(ghq list | peco)"
 
+# use pbcopy on linux
+alias pbcopy="xsel --clipboard --input"
+
 # NeoVim
 alias vi="nvim"
 alias vim="nvim"

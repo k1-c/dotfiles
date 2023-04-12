@@ -14,3 +14,6 @@ go install github.com/x-motemen/ghq@latest
 
 # xdotools and compiz to resize window to custom size using shortcuts
 sudo apt-get install -y xdotools compiz
+
+# shellspec: https://github.com/shellspec/shellspec
+curl -fsSL https://git.io/shellspec | sh

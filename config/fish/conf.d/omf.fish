@@ -33,6 +33,13 @@ function __slavic_git_branch_name
   echo (git rev-parse --abbrev-ref HEAD 2>/dev/null)
 end
 
+function __slavic_node_version
+  if test -e package.json
+    set -l node_version (node -v)
+    echo " $node_version"  2>/dev/null
+  end
+end
+
 function __slavic_rainbow
   if echo $argv[1] | grep -q -e $argv[3]
     __slavic_color_echo $argv[2] "彡ミ"
@@ -57,6 +64,7 @@ function __slavic_git_status
 
     __slavic_color_echo $__slavic_color_blue " ☭ "
     __slavic_color_echo $__slavic_color_white (__slavic_git_branch_name)
+    __slavic_color_echo $__slavic_color_green (__slavic_node_version)
 
     if test -n (__slavic_git_status_codes)
       __slavic_color_echo $__slavic_color_pink ' ●'

@@ -46,6 +46,8 @@ register ${src_path}/nvim/.vim/autoload/jetpack.vim ${HOME}/.vim/autoload/jetpac
 
 # tmux
 register ${src_path}/tmux/.tmux.conf ${HOME}/.tmux.conf
+if [ ! -d ${HOME}/.tmux ]; then mkdir -p ${HOME}/.tmux; fi
+register ${src_path}/tmux/new-session.sh ${HOME}/.tmux/new-session.sh
 
 # obsidian
 register ${src_path}/obsidian/.obsidian.vimrc "$obsidian_vimrc_path"
@@ -58,9 +60,9 @@ register ${src_path}/ulauncher/shortcuts.json ${HOME}/.config/ulauncher/shortcut
 
 # vscode
 if [ ! -d ${HOME}/.config/Code/User ]; then mkdir -p ${HOME}/.config/Code/User; fi
-register ${src_path}/vscode/Code/User/extensions ${HOME}/.config/Code/User/extensions
-register ${src_path}/vscode/Code/User/keybindings.json ${HOME}/.config/Code/User/keybindings.json
-register ${src_path}/vscode/Code/User/settings.json ${HOME}/.config/Code/User/settings.json
+register ${src_path}/vscode/User/extensions ${HOME}/.config/Code/User/extensions
+register ${src_path}/vscode/User/keybindings.json ${HOME}/.config/Code/User/keybindings.json
+register ${src_path}/vscode/User/settings.json ${HOME}/.config/Code/User/settings.json
 
 # Delete backup directory when empty
 if [ -z "`ls $backup_dir`" ]; then rm -r $backup_dir; fi
