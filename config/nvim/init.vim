@@ -8,6 +8,7 @@ let $SHELL = "/bin/zsh"
 
 " Plugins
 call jetpack#begin()
+call jetpack#add('tani/vim-jetpack')
 call jetpack#add('neoclide/coc.nvim', { 'branch': 'release' })
 call jetpack#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 call jetpack#add('sheerun/vim-polyglot')
