@@ -21,6 +21,9 @@ cargo install deno --locked
 # Neovim
 sudo apt-get install -y neovim
 
+# enable clipboard on neovim
+sudo apt-get install -y xclip
+
 # tmux: https://github.com/tmux/tmux
 sudo apt-get install -y tmux
 
@@ -34,4 +37,4 @@ sudo apt-get install -y peco
 go install github.com/x-motemen/ghq@latest
 
 # xdotools and compiz to resize window to custom size using shortcuts
-sudo apt-get install -y xdotools compiz
+sudo apt-get install -y xdotool compiz
