@@ -1,4 +1,25 @@
-#!/bin/bash
+### Lang Env
+
+# Ruby (rbenv)
+sudo apt-get install -y rbenv
+
+# Python (pyenv)
+curl https://pyenv.run | bash
+
+# Node (Volta)
+sudo curl https://get.volta.sh | bash
+
+# Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+
+### Tools
+
+# Deno
+cargo install deno --locked
+
+# Neovim
+sudo apt-get install -y neovim
 
 # tmux: https://github.com/tmux/tmux
 sudo apt-get install -y tmux
@@ -14,6 +35,3 @@ go install github.com/x-motemen/ghq@latest
 
 # xdotools and compiz to resize window to custom size using shortcuts
 sudo apt-get install -y xdotools compiz
-
-# shellspec: https://github.com/shellspec/shellspec
-curl -fsSL https://git.io/shellspec | sh
