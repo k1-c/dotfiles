@@ -12,11 +12,10 @@ sudo curl https://get.volta.sh | bash
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-
-### Tools
-
 # Deno
 cargo install deno --locked
+
+### Tools
 
 # Neovim
 sudo apt-get install -y neovim
@@ -38,3 +37,6 @@ go install github.com/x-motemen/ghq@latest
 
 # xdotools and compiz to resize window to custom size using shortcuts
 sudo apt-get install -y xdotool compiz
+
+# ni https://github.com/antfu/ni
+npm i -g @antfu/ni
