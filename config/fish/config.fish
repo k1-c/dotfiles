@@ -5,7 +5,8 @@ set -g theme_nerd_fonts yes
 alias dev-browser="chromium-browser --disable-web-security --user-data-dir '/tmp/chrome'"
 
 # Docker
-alias dc="docker-compose"
+alias dc="docker compose"
+alias docker-compose="docker compose"
 
 # Python
 alias p="python"

@@ -4,7 +4,6 @@ SHELL=/bin/bash
 config:
 	bash ./config/_register.sh
 
-
 .PHONY: vscode
 vscode:
 	bash ./scripts/install_vscode_extension.sh
