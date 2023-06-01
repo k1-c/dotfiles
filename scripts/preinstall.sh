@@ -73,3 +73,6 @@ npm i -g @antfu/ni
 mkdir -p $HOME/tmp
 git clone https://github.com/sebastiencs/icons-in-terminal.git $HOME/tmp/icons-in-terminal
 bash $HOME/tmp/icons-in-terminal/install-autodetect.sh
+
+# fzf https://github.com/junegunn/fzf
+sudo apt-get install -y fzf
