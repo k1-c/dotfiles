@@ -67,4 +67,8 @@ register ${src_path}/vscode/User/settings.json ${HOME}/.config/Code/User/setting
 # Delete backup directory when empty
 if [ -z "`ls $backup_dir`" ]; then rm -r $backup_dir; fi
 
+if [ ! -d ${HOME}/gitui ]; then mkdir -p ${HOME}/.config/gitui; fi
+register ${src_path}/gitui/key_bindings.ron ${HOME}/.config/gitui/key_bindings.ron
+register ${src_path}/gitui/theme.ron ${HOME}/.config/gitui/theme.ron
+
 echo "registration for config files completed."
