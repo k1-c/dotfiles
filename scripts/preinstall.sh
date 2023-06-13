@@ -67,7 +67,7 @@ go install github.com/x-motemen/ghq@latest
 sudo apt-get install -y xdotool compiz
 
 # ni https://github.com/antfu/ni
-npm i -g @antfu/ni
+sudo npm i -g @antfu/ni
 
 # icons-in-terminal: https://github.com/sebastiencs/icons-in-terminal
 mkdir -p $HOME/tmp
@@ -76,3 +76,6 @@ bash $HOME/tmp/icons-in-terminal/install-autodetect.sh
 
 # fzf https://github.com/junegunn/fzf
 sudo apt-get install -y fzf
+
+# repgrep https://github.com/BurntSushi/ripgrep
+sudo apt-get install -y ripgrep
