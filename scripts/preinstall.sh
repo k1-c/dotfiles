@@ -10,12 +10,16 @@ curl https://pyenv.run | bash
 
 # Node (Volta)
 sudo curl https://get.volta.sh | bash
+volta install node
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Deno
 cargo install deno --locked
+
+# Go
+sudo apt-get install -y golang-go
 
 ### Tools
 
