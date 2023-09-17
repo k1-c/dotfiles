@@ -135,7 +135,7 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 " Allow jj to escape insert mode
-" inoremap <silent> jj <ESC>
+inoremap <silent> jj <ESC>
 
 " Hで行頭, Lで行末へ
 nmap H ^
