@@ -96,6 +96,7 @@ set -x PATH "$HOME/dev/scripts" $PATH
 # Volta
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
+set -gx VOLTA_FEATURE_PNPM 1
 
 # Neovide
 alias vide="neovide"
