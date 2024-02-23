@@ -14,6 +14,7 @@ esbenp.prettier-vscode
 formulahendry.auto-close-tag
 garym.nim-alt
 GraphQL.vscode-graphql
+GraphQL.vscode-graphql-syntax
 Gruntfuggly.todo-tree
 hediet.vscode-drawio
 janisdd.vscode-edit-csv
@@ -27,11 +28,14 @@ mhutchie.git-graph
 mikestead.dotenv
 misogi.ruby-rubocop
 ms-azuretools.vscode-docker
+ms-python.debugpy
 ms-python.python
 ms-python.vscode-pylance
 ms-toolsai.jupyter
 ms-toolsai.jupyter-keymap
 ms-toolsai.jupyter-renderers
+ms-toolsai.vscode-jupyter-cell-tags
+ms-toolsai.vscode-jupyter-slideshow
 ms-vscode-remote.remote-containers
 ms-vscode.cpptools
 ms-vscode.live-server
@@ -55,7 +59,6 @@ ryannaddy.laravel-artisan
 scala-lang.scala
 shd101wyy.markdown-preview-enhanced
 sissel.shopify-liquid
-stef-k.laravel-goto-controller
 streetsidesoftware.code-spell-checker
 tht13.python
 toba.vsfire
