@@ -100,3 +100,10 @@ set -gx VOLTA_FEATURE_PNPM 1
 
 # Neovide
 alias vide="neovide"
+
+# proto
+set -gx PROTO_HOME "$HOME/.proto"
+# Global Package PATH
+set -gx PATH "$PROTO_HOME/tools/node/21.7.1/bin" $PATH
+set -gx PATH "$PROTO_HOME/shims:$PROTO_HOME/bin" $PATH
+set -gx PATH "$HOME/.local/bin" $PATH

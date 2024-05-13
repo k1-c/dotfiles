@@ -24,6 +24,7 @@ call jetpack#add('phaazon/hop.nvim')
 call jetpack#add('github/copilot.vim')
 call jetpack#add('iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' })
 call jetpack#add('nvim-telescope/telescope.nvim')
+call jetpack#add('nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'})
 call jetpack#add('fannheyward/telescope-coc.nvim')
 call jetpack#add('nvim-lua/plenary.nvim')
 call jetpack#add('phaazon/hop.nvim')
@@ -33,6 +34,14 @@ lua << EOF
 require('hop').setup()
 
 require('telescope').setup({
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = false,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    },
+  },
   defaults = {
     layout_config = {
       prompt_position = "top",
@@ -40,6 +49,7 @@ require('telescope').setup({
     },
   }
 })
+require('telescope').load_extension('fzf')
 require('telescope').load_extension('coc')
 EOF
 
@@ -200,9 +210,9 @@ if has("autocmd")
 endif
 
 " Telescope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>p <cmd>Telescope find_files<cr>
+nnoremap <leader>g <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " hop
@@ -232,9 +242,6 @@ nnoremap <Leader>/ <cmd>HopPattern<cr>
 
 " coc-explorer
 nmap <Leader>e <Cmd>CocCommand explorer<CR>
-
-" coc-list files
-nmap <Leader>p :CocList files<CR>
 
 " coc-pair
 " 改行時にカーソル位置を調整する

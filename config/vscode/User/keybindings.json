@@ -7,13 +7,25 @@
   // エクスプローラにフォーカス
   { "key": "ctrl+e", "command": "workbench.view.explorer" },
   // エディタにフォーカスしてる時、ターミナルにフォーカス
-  { "key": "ctrl+0", "command": "workbench.action.terminal.focus", "when": "editorTextFocus" },
+  {
+    "key": "ctrl+0",
+    "command": "workbench.action.terminal.focus",
+    "when": "editorTextFocus"
+  },
   // ターミナルにフォーカスしてる時、エクスプローラにフォーカス
-  { "key": "ctrl+0", "command": "workbench.view.explorer", "when": "terminalFocus" },
+  {
+    "key": "ctrl+0",
+    "command": "workbench.view.explorer",
+    "when": "terminalFocus"
+  },
   // エクスプローラにフォーカスしてる時、エディタにフォーカス
-  { "key": "ctrl+0", "command": "workbench.action.focusActiveEditorGroup", "when": "filesExplorerFocus" },
+  {
+    "key": "ctrl+0",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "filesExplorerFocus"
+  },
   // 開いている全てのエディタを閉じる
-  { "key": "ctrl+shift+w", "command": "workbench.action.closeAllEditors"},
+  { "key": "ctrl+shift+w", "command": "workbench.action.closeAllEditors" },
   // ウィンドウを閉じる
   { "key": "ctrl+q", "command": "workbench.action.closeWindow" }
 ]
