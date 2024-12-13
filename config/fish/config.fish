@@ -65,6 +65,7 @@ end
 
 ## rbenv
 set -x PATH $HOME/.rbenv/bin $PATH
+set -x PATH $HOME/.rbenv/shims $PATH
 status --is-interactive; and source (rbenv init -|psub)
 
 ## phpenv

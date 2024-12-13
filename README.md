@@ -1,26 +1,40 @@
-# Dotfiles
+# :gear: Dotfiles
 
-dotfiles for k1-c
+## :twisted_rightwards_arrows: Workflow
 
-## Environment
-| | |
-|---|-----|
-|OS (Base)|Linux (Ubuntu ^20.04)|
-|Shell| fish|
+```mermaid
+flowchart LR
+  Start([install.sh as entry point])-->1[Install proto]
+  1-->2[Run installation scripts by Deno]
+```
+
+### install.sh
+
+Just run `bin/install.sh`. It will automatically execute all subsequent
+processes.
+
+### Install proto
+
+[proto](https://github.com/moonrepo/proto) is a modern version manager for
+multiple programming languages.
+
+### Run installation scripts by Deno
+
+[Deno](https://deno.com/) installed by proto runs all configurattion setup
+scripts.
+
+## :wrench: Environment
+
+|           |                       |
+| --------- | --------------------- |
+| OS (Base) | Linux (Ubuntu ^22.04) |
+| Shell     | fish                  |
 
 ## Setup
+
 ```bash
 # Clone this repository
 git clone https://github.com/shunk-py/dotfiles.git
-# All commands in Makefile
-less Makefile
-```
-To setup all environments and configs at once:
-```bash
-make all
-```
-To install certain config:
-```bash
-# ex.
-make neovide
+# Run install.sh
+bash ./bin/install.sh
 ```

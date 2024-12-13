@@ -35,10 +35,12 @@
 	# Automatically correct and execute mistyped commands.
 	autocorrect = 1
 
-[include]
-  path = ~/.gitconfig.local
+[init]
+	defaultBranch = main
+
 [user]
 	name = k1-c
 	email = shun.kimura@integritis.io
-[init]
-	defaultBranch = main
+
+[include]
+  path = ~/.gitconfig.local

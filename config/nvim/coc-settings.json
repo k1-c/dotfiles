@@ -1,5 +1,5 @@
 {
   "explorer.file.showHiddenFiles": true,
   "eslint.autoFixOnSave": true,
-  "coc.preferences.formatOnType": true
+  "coc.preferences.formatOnType": true,
 }
