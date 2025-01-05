@@ -15,7 +15,8 @@ function register() {
 }
 
 # Install zsh
-sudo apt-get update && sudo apt-get install zsh -y
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install curl zsh -y
 
 # Zsh config
 register ${src_path}/fish/config.fish ${HOME}/.config/fish/config.fish

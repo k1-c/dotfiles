@@ -1,5 +1,14 @@
+" cSpell:disable
+
 if&compatible
   set nocompatible
+endif
+
+" Jetpack Init
+let s:jetpackfile = stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+let s:jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+if !filereadable(s:jetpackfile)
+  call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
 endif
 
 " Fishだと使えないプラグインがあるのでZshに変更しておく
