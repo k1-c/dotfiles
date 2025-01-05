@@ -1,4 +1,7 @@
-# :gear: Dotfiles
+# :gear: Kay's Dotfiles
+
+![logo](./assets/logo.png)
+
 
 ## :twisted_rightwards_arrows: Workflow
 
@@ -34,7 +37,7 @@ scripts.
 
 ```bash
 # Clone this repository
-git clone https://github.com/shunk-py/dotfiles.git
+git clone https://github.com/k1-c/dotfiles.git
 # Run install.sh
 bash ./bin/install.sh
 ```
