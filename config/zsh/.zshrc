@@ -78,9 +78,16 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # User configuration
 
@@ -116,6 +123,11 @@ export PROTO_HOME="$HOME/.proto"
 export PATH="$PROTO_HOME/bin/:$PATH"
 export PATH="$PROTO_HOME/shims:$PROTO:$PATH"
 
+## Golang
+export GOPATH=$HOME/.go
+export PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
+# set -x GO111MODULE on
+
 # Debug to disable CORS Policy
 alias dev-browser="chromium-browser --disable-web-security --user-data-dir '/tmp/chrome'"
 
@@ -133,5 +145,19 @@ alias vimdiff="nvim -d"
 alias vimconf="vim ~/.config/nvim/init.vim"
 alias shconf="vim ~/.zshrc"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Switch GitHub Repositories
+function ghq_peco {
+  local dir="$( ghq list -p | peco )"
+  if [ ! -z "$dir" ] ; then
+    cd "$dir"
+    code .
+  fi
+}
+alias j="ghq_peco"
+
+# use pbcopy on linux
+alias pbcopy="xsel --clipboard --input"
+
+# Exa
+alias ll="exa -l -g -a --icons"
+
