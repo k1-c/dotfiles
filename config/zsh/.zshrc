@@ -122,6 +122,7 @@ source $ZSH/oh-my-zsh.sh
 export PROTO_HOME="$HOME/.proto"
 export PATH="$PROTO_HOME/bin/:$PATH"
 export PATH="$PROTO_HOME/shims:$PROTO:$PATH"
+export PATH=$PATH:`npm prefix --location=global`/bin
 
 ## Golang
 export GOPATH=$HOME/.go
