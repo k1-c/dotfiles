@@ -151,7 +151,6 @@ function ghq_peco {
   local dir="$( ghq list -p | peco )"
   if [ ! -z "$dir" ] ; then
     cd "$dir"
-    code .
   fi
 }
 alias j="ghq_peco"

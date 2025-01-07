@@ -20,7 +20,7 @@ function register() {
 # TODO: Place Symlinks recursively each directory
 
 # TODO: Make obsidian vault path to dynamic
-obsidian_vimrc_path="${HOME}/Documents/Main/.obsidian.vimrc"
+obsidian_vimrc_path="${HOME}/Documents/Primary/.obsidian.vimrc"
 
 # git
 register ${src_path}/git/.gitconfig ${HOME}/.gitconfig
