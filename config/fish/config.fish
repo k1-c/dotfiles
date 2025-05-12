@@ -36,11 +36,11 @@ set -x PATH /usr/local/go/bin $HOME/.go/bin $PATH
 set -x GO111MODULE on
 
 ## Python (pyenv)
-set -Ux PYENV_ROOT $HOME/.pyenv
-set -x PATH $PYENV_ROOT/bin $PATH
+# set -Ux PYENV_ROOT $HOME/.pyenv
+# set -x PATH $PYENV_ROOT/bin $PATH
 # status is-login; and pyenv init --path | source
 # status is-interactive; and pyenv init - | source
-pyenv init - | source
+# pyenv init - | source
 
 ## Rust
 set -x PATH $HOME/.cargo/bin $PATH
@@ -108,3 +108,6 @@ set -gx PROTO_HOME "$HOME/.proto"
 set -gx PATH "$PROTO_HOME/tools/node/21.7.1/bin" $PATH
 set -gx PATH "$PROTO_HOME/shims:$PROTO_HOME/bin" $PATH
 set -gx PATH "$HOME/.local/bin" $PATH
+
+# pkg-config
+set -gx PKG_CONFIG_PATH "/usr/lib/x86_64-linux-gnu/pkgconfig/icu-uc.pc" $PKG_CONFIG_PATH

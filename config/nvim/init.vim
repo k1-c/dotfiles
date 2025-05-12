@@ -37,6 +37,7 @@ call jetpack#add('nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'})
 call jetpack#add('fannheyward/telescope-coc.nvim')
 call jetpack#add('nvim-lua/plenary.nvim')
 call jetpack#add('phaazon/hop.nvim')
+call jetpack#add('yaegassy/coc-laravel', {'do': 'yarn install --frozen-lockfile'})
 call jetpack#end()
 
 lua << EOF
@@ -61,6 +62,8 @@ require('telescope').setup({
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('coc')
 EOF
+
+let g:coc_node_path = '~/.proto/tools/node/21.7.1/bin/node'
 
 " color scheme
 syntax on

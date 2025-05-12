@@ -72,7 +72,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1664087915814,
+  "php-cs-fixer.lastDownload": 1728445240797,
   "editor.formatOnSave": true,
   "explorer.confirmDelete": false,
   "volar.codeLens.scriptSetupTools": true,
@@ -83,5 +83,6 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "prisma.showPrismaDataPlatformNotification": false
 }

@@ -2,4 +2,14 @@
   "explorer.file.showHiddenFiles": true,
   "eslint.autoFixOnSave": true,
   "coc.preferences.formatOnType": true,
+  "intelephense.diagnostics.undefinedTypes": false,
+  "intelephense.diagnostics.undefinedFunctions": false,
+  "intelephense.diagnostics.undefinedConstants": false,
+  "intelephense.diagnostics.undefinedClassConstants": false,
+  "intelephense.diagnostics.undefinedMethods": false,
+  "intelephense.diagnostics.undefinedProperties": false,
+  "intelephense.diagnostics.undefinedVariables": true,
+  "[php]": {
+    "editor.tabSize": 2
+  }
 }
