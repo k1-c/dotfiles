@@ -42,6 +42,9 @@
 [init]
 	defaultBranch = main
 
+[push]
+	default = current
+
 [user]
 	name = k1-c
 	email = shun.kimura@integritis.io

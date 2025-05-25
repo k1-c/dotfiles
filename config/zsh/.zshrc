@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -123,11 +123,15 @@ export PROTO_HOME="$HOME/.proto"
 export PATH="$PROTO_HOME/bin/:$PATH"
 export PATH="$PROTO_HOME/shims:$PROTO:$PATH"
 export PATH=$PATH:`npm prefix --location=global`/bin
+export PATH="$PROTO_HOME/tools/node/23.8.0/bin:$PATH"
 
 ## Golang
 export GOPATH=$HOME/.go
 export PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
 # set -x GO111MODULE on
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 # Debug to disable CORS Policy
 alias dev-browser="chromium-browser --disable-web-security --user-data-dir '/tmp/chrome'"
@@ -161,3 +165,19 @@ alias pbcopy="xsel --clipboard --input"
 # Exa
 alias ll="exa -l -g -a --icons"
 
+
+# Added by `rbenv init` on Thu Feb 13 08:36:26 PM JST 2025
+# eval "$(rbenv init - --no-rehash zsh)"
+# eval "$(rbenv init)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [Workaround] see: https://github.com/junegunn/fzf/issues/3703
+# if command -v fzf &>/dev/null; then
+#   # Don't source FZF shell integrations if version is older than 0.48 (Avoids `unknown option: --bash`)
+#   # Version comparison technique courtesy of Luciano Andress Martini:
+#   # https://unix.stackexchange.com/questions/285924/how-to-compare-a-programs-version-in-a-shell-script
+#   FZF_VERSION="$(fzf --version | cut -d' ' -f1)"
+#   if [[ -f ~/.fzf.bash && "$(printf '%s\n' 0.48 "$FZF_VERSION" | sort -V | head -n1)" = 0.48 ]]; then
+#     . ~/.fzf.bash
+#   fi
+# fi

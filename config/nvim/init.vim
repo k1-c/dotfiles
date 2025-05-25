@@ -38,10 +38,13 @@ call jetpack#add('fannheyward/telescope-coc.nvim')
 call jetpack#add('nvim-lua/plenary.nvim')
 call jetpack#add('phaazon/hop.nvim')
 call jetpack#add('yaegassy/coc-laravel', {'do': 'yarn install --frozen-lockfile'})
+call jetpack#add('nvim-lua/plenary.nvim')
+call jetpack#add('greggh/claude-code.nvim')
 call jetpack#end()
 
 lua << EOF
 require('hop').setup()
+require('claude-code').setup()
 
 require('telescope').setup({
   extensions = {
@@ -278,3 +281,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " coc node version
 let g:coc_node_path = '~/.proto/bin/node'
+
+" coc spell-checker
+vmap <leader>w <Plug>(coc-codeaction-selected)
+nmap <leader>w <Plug>(coc-codeaction-selected)
