@@ -72,7 +72,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1728445240797,
+  "php-cs-fixer.lastDownload": 1742902135060,
   "editor.formatOnSave": true,
   "explorer.confirmDelete": false,
   "volar.codeLens.scriptSetupTools": true,
@@ -84,5 +84,17 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "window.zoomLevel": 1,
-  "prisma.showPrismaDataPlatformNotification": false
+  "prisma.showPrismaDataPlatformNotification": false,
+  "browse-lite.chromeExecutable": "/usr/bin/google-chrome",
+  "roo-cline.allowedCommands": [
+    "npm test",
+    "npm install",
+    "tsc",
+    "git log",
+    "git diff",
+    "git show"
+  ],
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
