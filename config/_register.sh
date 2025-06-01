@@ -74,5 +74,6 @@ register ${src_path}/gitui/theme.ron ${HOME}/.config/gitui/theme.ron
 
 # zsh
 register ${src_path}/zsh/.zshrc ${HOME}/.zshrc
+register ${src_path}/zsh/.p10k.zsh ${HOME}/.p10k.zsh
 
 echo "registration for config files completed."

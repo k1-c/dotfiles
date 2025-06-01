@@ -94,19 +94,17 @@ alias shconf="vim ~/.config/fish/config.fish"
 # Personal Scripts PATH
 set -x PATH "$HOME/dev/scripts" $PATH
 
-# Volta
-set -gx VOLTA_HOME "$HOME/.volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH
-set -gx VOLTA_FEATURE_PNPM 1
-
 # Neovide
 alias vide="neovide"
 
 # proto
 set -gx PROTO_HOME "$HOME/.proto"
 # Global Package PATH
-set -gx PATH "$PROTO_HOME/tools/node/21.7.1/bin" $PATH
 set -gx PATH "$PROTO_HOME/shims:$PROTO_HOME/bin" $PATH
+proto activate fish --on-init --no-bin | source
+# NOTE: [Workaround] npm global bin path
+set -gx PATH "$PROTO_HOME/tools/node/22.12.0/bin" $PATH
+
 set -gx PATH "$HOME/.local/bin" $PATH
 
 # pkg-config

@@ -11,5 +11,8 @@
   "intelephense.diagnostics.undefinedVariables": true,
   "[php]": {
     "editor.tabSize": 2
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   }
 }

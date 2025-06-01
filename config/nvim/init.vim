@@ -66,8 +66,6 @@ require('telescope').load_extension('fzf')
 require('telescope').load_extension('coc')
 EOF
 
-let g:coc_node_path = '~/.proto/tools/node/21.7.1/bin/node'
-
 " color scheme
 syntax on
 colorscheme cosme
@@ -281,6 +279,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " coc node version
 let g:coc_node_path = '~/.proto/bin/node'
+let g:copilot_node_command = '~/.proto/bin/node'
 
 " coc spell-checker
 vmap <leader>w <Plug>(coc-codeaction-selected)
