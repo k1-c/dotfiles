@@ -165,6 +165,11 @@ alias pbcopy="xsel --clipboard --input"
 # Exa
 alias ll="exa -l -g -a --icons"
 
+# Python
+alias python="python3"
+
+# QT setup for nvim
+export QT_QPA_PLATFORM=xcb
 
 # Added by `rbenv init` on Thu Feb 13 08:36:26 PM JST 2025
 # eval "$(rbenv init - --no-rehash zsh)"
@@ -181,3 +186,6 @@ alias ll="exa -l -g -a --icons"
 #     . ~/.fzf.bash
 #   fi
 # fi
+
+. "$HOME/.local/bin/env"
+. "$HOME/.cargo/env"

@@ -278,8 +278,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " coc node version
-let g:coc_node_path = '~/.proto/bin/node'
-let g:copilot_node_command = '~/.proto/bin/node'
+" let g:coc_node_path = '~/.proto/bin/node-22'
+let g:copilot_node_command = '~/.proto/bin/node-22'
 
 " coc spell-checker
 vmap <leader>w <Plug>(coc-codeaction-selected)
