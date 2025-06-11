@@ -4,68 +4,141 @@ if vim.o.compatible then
   vim.o.compatible = false
 end
 
--- Jetpack Init
-local jetpackfile = vim.fn.stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
-local jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
-if vim.fn.filereadable(jetpackfile) == 0 then
-  vim.fn.system(string.format('curl -fsSLo %s --create-dirs %s', jetpackfile, jetpackurl))
+-- lazy.nvim Init
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
 -- Fishだと使えないプラグインがあるのでZshに変更しておく
 vim.o.shell = '/bin/zsh'
 vim.env.SHELL = '/bin/zsh'
 
 -- Plugins
-vim.cmd('call jetpack#begin()')
-vim.cmd([[call jetpack#add('tani/vim-jetpack')]])
-vim.cmd([[call jetpack#add('neoclide/coc.nvim', { 'branch': 'release' })]])
-vim.cmd([[call jetpack#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })]])
-vim.cmd([[call jetpack#add('sheerun/vim-polyglot')]])
-vim.cmd([[call jetpack#add('pantharshit00/vim-prisma')]])
-vim.cmd([[call jetpack#add('vim-airline/vim-airline')]])
-vim.cmd([[call jetpack#add('vim-airline/vim-airline-theme')]])
-vim.cmd([[call jetpack#add('airblade/vim-gitgutter')]])
-vim.cmd([[call jetpack#add('kyoz/purify', { 'rtp': 'vim' })]])
-vim.cmd([[call jetpack#add('rcarriga/nvim-notify')]])
-vim.cmd([[call jetpack#add('bluz71/vim-moonfly-colors')]])
-vim.cmd([[call jetpack#add('beikome/cosme.vim')]])
-vim.cmd([[call jetpack#add('phaazon/hop.nvim')]])
-vim.cmd([[call jetpack#add('github/copilot.vim')]])
-vim.cmd([[call jetpack#add('iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' })]])
-vim.cmd([[call jetpack#add('nvim-telescope/telescope.nvim')]])
-vim.cmd([[call jetpack#add('nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'})]])
-vim.cmd([[call jetpack#add('fannheyward/telescope-coc.nvim')]])
-vim.cmd([[call jetpack#add('nvim-lua/plenary.nvim')]])
-vim.cmd([[call jetpack#add('phaazon/hop.nvim')]])
-vim.cmd([[call jetpack#add('yaegassy/coc-laravel', {'do': 'yarn install --frozen-lockfile'})]])
-vim.cmd([[call jetpack#add('nvim-lua/plenary.nvim')]])
-vim.cmd([[call jetpack#add('greggh/claude-code.nvim')]])
-vim.cmd('call jetpack#end()')
-
--- Lua plugin configuration
-require('hop').setup()
-require('claude-code').setup()
-
-require('telescope').setup({
-  extensions = {
-    fzf = {
-      fuzzy = true,
-      override_generic_sorter = false,
-      override_file_sorter = true,
-      case_mode = "smart_case",
-    },
+require("lazy").setup({
+  -- Completion and Language Server
+  {
+    "neoclide/coc.nvim", 
+    branch = "release",
+    config = function()
+      vim.g.coc_node_path = '~/.proto/bin/node'
+    end
   },
-  defaults = {
-    layout_config = {
-      prompt_position = "top",
-      preview_width = 0.6,
-    },
-  }
-})
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('coc')
 
-vim.g.coc_node_path = '~/.proto/tools/node/21.7.1/bin/node'
+  -- nvim-treesitter
+  {
+    "nvim-treesitter/nvim-treesitter", 
+    build = ":TSUpdate",
+    config = function()
+      require('nvim-treesitter.configs').setup({
+        ensure_installed = "lua",
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+        indent = {
+          enable = true,
+        },
+      })
+    end
+  },
+  
+  -- File search and fuzzy finder
+  {
+    "junegunn/fzf", 
+    build = "./install --all"
+  },
+  
+  -- Language support
+  "sheerun/vim-polyglot",
+  "pantharshit00/vim-prisma",
+  
+  -- Status line
+  "vim-airline/vim-airline",
+  "vim-airline/vim-airline-themes",
+  
+  -- Git integration
+  "airblade/vim-gitgutter",
+  
+  -- Color schemes
+  -- {
+  --   "kyoz/purify", 
+  --   dir = vim.fn.stdpath("data") .. "/lazy/purify/vim"
+  -- },
+  "rcarriga/nvim-notify",
+  "bluz71/vim-moonfly-colors",
+  "beikome/cosme.vim",
+  
+  -- Navigation
+  {
+    "phaazon/hop.nvim",
+    config = function()
+      require('hop').setup()
+    end
+  },
+  
+  -- AI assistance
+  "github/copilot.vim",
+  {
+    "greggh/claude-code.nvim",
+    config = function()
+      require('claude-code').setup()
+    end
+  },
+  
+  -- Markdown preview
+  {
+    "iamcco/markdown-preview.nvim", 
+    build = "cd app && yarn install"
+  },
+  
+  -- Telescope and dependencies
+  "nvim-lua/plenary.nvim",
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require('telescope').setup({
+        extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = false,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+          },
+        },
+        defaults = {
+          layout_config = {
+            prompt_position = "top",
+            preview_width = 0.6,
+          },
+        }
+      })
+      require('telescope').load_extension('fzf')
+      require('telescope').load_extension('coc')
+    end
+  },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim", 
+    build = "make"
+  },
+  "fannheyward/telescope-coc.nvim",
+  
+  -- Laravel support
+  {
+    "yaegassy/coc-laravel", 
+    build = "yarn install --frozen-lockfile"
+  },
+})
+
 
 -- Color scheme
 vim.cmd('syntax on')
