@@ -182,6 +182,8 @@ require("lazy").setup({
           position = "rightbelow vsplit",
         }
       })
+      -- Create :CC command as alias for :ClaudeCode
+      vim.api.nvim_create_user_command('CC', 'ClaudeCode', { nargs = 0 })
     end
   }
 })
