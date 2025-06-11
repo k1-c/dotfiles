@@ -187,5 +187,7 @@ export QT_QPA_PLATFORM=xcb
 #   fi
 # fi
 
-. "$HOME/.local/bin/env"
 . "$HOME/.cargo/env"
+
+# Load local environment variables
+source ~/env.local.sh

@@ -9,10 +9,11 @@
   "intelephense.diagnostics.undefinedMethods": false,
   "intelephense.diagnostics.undefinedProperties": false,
   "intelephense.diagnostics.undefinedVariables": true,
-  "[php]": {
-    "editor.tabSize": 2
-  },
+  "explorer.width": 36,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "cSpell.userWords": [
+    "varchar"
+  ]
 }

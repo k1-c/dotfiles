@@ -26,7 +26,7 @@ vim.env.SHELL = '/bin/zsh'
 require("lazy").setup({
   -- Completion and Language Server
   {
-    "neoclide/coc.nvim", 
+    "neoclide/coc.nvim",
     branch = "release",
     config = function()
       vim.g.coc_node_path = '~/.proto/bin/node'
@@ -35,11 +35,11 @@ require("lazy").setup({
 
   -- nvim-treesitter
   {
-    "nvim-treesitter/nvim-treesitter", 
+    "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
       require('nvim-treesitter.configs').setup({
-        ensure_installed = "lua",
+        ensure_installed = { "lua", "markdown", "markdown_inline" },
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false,
@@ -50,33 +50,57 @@ require("lazy").setup({
       })
     end
   },
-  
+
   -- File search and fuzzy finder
   {
-    "junegunn/fzf", 
+    "junegunn/fzf",
     build = "./install --all"
   },
-  
+
   -- Language support
   "sheerun/vim-polyglot",
   "pantharshit00/vim-prisma",
-  
+
   -- Status line
   "vim-airline/vim-airline",
   "vim-airline/vim-airline-themes",
-  
+
   -- Git integration
   "airblade/vim-gitgutter",
-  
+
   -- Color schemes
-  -- {
-  --   "kyoz/purify", 
-  --   dir = vim.fn.stdpath("data") .. "/lazy/purify/vim"
-  -- },
   "rcarriga/nvim-notify",
   "bluz71/vim-moonfly-colors",
   "beikome/cosme.vim",
-  
+
+  -- oklch color display & picker
+  {
+    "eero-lehtinen/oklch-color-picker.nvim",
+    event = "VeryLazy",
+    version = "*",
+    keys = {
+      -- One handed keymap recommended, you will be using the mouse
+      {
+        "<leader>v",
+        function() require("oklch-color-picker").pick_under_cursor() end,
+        desc = "Color pick under cursor",
+      },
+    },
+    ---@type oklch.Opts
+    opts = {},
+  },
+
+  -- Display buffers as tabs
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      vim.opt.termguicolors = true
+      require("bufferline").setup {}
+    end
+  },
+
   -- Navigation
   {
     "phaazon/hop.nvim",
@@ -84,22 +108,16 @@ require("lazy").setup({
       require('hop').setup()
     end
   },
-  
+
   -- AI assistance
   "github/copilot.vim",
-  {
-    "greggh/claude-code.nvim",
-    config = function()
-      require('claude-code').setup()
-    end
-  },
-  
+
   -- Markdown preview
   {
-    "iamcco/markdown-preview.nvim", 
+    "iamcco/markdown-preview.nvim",
     build = "cd app && yarn install"
   },
-  
+
   -- Telescope and dependencies
   "nvim-lua/plenary.nvim",
   {
@@ -127,16 +145,45 @@ require("lazy").setup({
     end
   },
   {
-    "nvim-telescope/telescope-fzf-native.nvim", 
+    "nvim-telescope/telescope-fzf-native.nvim",
     build = "make"
   },
   "fannheyward/telescope-coc.nvim",
-  
+
   -- Laravel support
   {
-    "yaegassy/coc-laravel", 
+    "yaegassy/coc-laravel",
     build = "yarn install --frozen-lockfile"
   },
+
+  -- AI IDE like Cursor
+  {
+    "yetone/avante.nvim",
+    build = "make",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {},
+  },
+
+  -- Claude Code
+  {
+    "greggh/claude-code.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim", -- Required for git operations
+    },
+    config = function()
+      require("claude-code").setup({
+        window = {
+          split_ratio = 0.4,
+          position = "rightbelow vsplit",
+        }
+      })
+    end
+  }
 })
 
 
@@ -334,7 +381,8 @@ vim.keymap.set('n', '<Leader>e', '<Cmd>CocCommand explorer<CR>', { noremap = tru
 
 -- coc-pair
 -- 改行時にカーソル位置を調整する
-vim.keymap.set('i', '<cr>', 'pumvisible() ? coc#_select_confirm() : "\\<C-g>u\\<CR>\\<c-r>=coc#on_enter()\\<CR>"', { noremap = true, silent = true, expr = true })
+vim.keymap.set('i', '<cr>', 'pumvisible() ? coc#_select_confirm() : "\\<C-g>u\\<CR>\\<c-r>=coc#on_enter()\\<CR>"',
+  { noremap = true, silent = true, expr = true })
 
 -- coc show documentation on hover
 vim.keymap.set('n', 'K', ':call ShowDocumentation()<CR>', { noremap = true, silent = true })
