@@ -39,7 +39,7 @@ register ${src_path}/fish/fish_variables ${HOME}/.config/fish/fish_variables
 
 # nvim
 if [ ! -d ${HOME}/.config/nvim ]; then mkdir -p ${HOME}/.config/nvim; fi
-register ${src_path}/nvim/init.vim ${HOME}/.config/nvim/init.vim
+register ${src_path}/nvim/init.lua ${HOME}/.config/nvim/init.lua
 register ${src_path}/nvim/coc-settings.json ${HOME}/.config/nvim/coc-settings.json
 if [ ! -d ${HOME}/.vim/autoload ]; then mkdir -p ${HOME}/.vim/autoload; fi
 register ${src_path}/nvim/.vim/autoload/jetpack.vim ${HOME}/.vim/autoload/jetpack.vim
