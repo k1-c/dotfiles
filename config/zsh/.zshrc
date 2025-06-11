@@ -147,7 +147,7 @@ alias view="nvim -R"
 alias vimdiff="nvim -d"
 
 # Efit Config Quickly
-alias vimconf="vim ~/.config/nvim/init.vim"
+alias vimconf="vim ~/.config/nvim/init.lua"
 alias shconf="vim ~/.zshrc"
 
 # Switch GitHub Repositories
