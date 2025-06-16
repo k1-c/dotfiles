@@ -166,7 +166,12 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
     },
-    opts = {},
+    opts = {
+      behavior = {
+        auto_suggestions = true,
+      },
+
+    },
   },
 
   -- Claude Code
@@ -184,6 +189,7 @@ require("lazy").setup({
       })
       -- Create :CC command as alias for :ClaudeCode
       vim.api.nvim_create_user_command('CC', 'ClaudeCode', { nargs = 0 })
+      vim.api.nvim_create_user_command('CCC', 'ClaudeCodeContinue', { nargs = 0 })
     end
   }
 })
