@@ -165,6 +165,9 @@ alias pbcopy="xsel --clipboard --input"
 # Exa
 alias ll="exa -l -g -a --icons"
 
+# ccusage
+alias ccusage="npx ccusage@latest"
+
 # Python
 alias python="python3"
 

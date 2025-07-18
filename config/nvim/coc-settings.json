@@ -14,7 +14,9 @@
     "source.fixAll.eslint": true
   },
   "cSpell.userWords": [
+    "Usecase",
     "pnpm",
+    "tailwindcss",
     "varchar"
   ]
 }
