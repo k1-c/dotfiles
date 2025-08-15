@@ -1,16 +1,16 @@
 {
-    "com.github.iboyperson.ulauncher-system": {
-        "id": "com.github.iboyperson.ulauncher-system",
-        "url": "https://github.com/iboyperson/ulauncher-system",
-        "updated_at": "2024-03-19T14:39:02.760691",
-        "last_commit": "7dedd992709fa2297735cddf852404144d4da47c",
-        "last_commit_time": "2023-11-14T16:53:20"
-    },
-    "com.github.ondrejhajek.ulauncher-unotionplus": {
-        "id": "com.github.ondrejhajek.ulauncher-unotionplus",
-        "url": "https://github.com/ondrejhajek/ulauncher-unotionplus",
-        "updated_at": "2024-03-19T14:39:04.039152",
-        "last_commit": "41a1a00f4e4e502c17564f9feae4ef98a68fdaa7",
-        "last_commit_time": "2023-11-16T22:59:13"
-    }
+  "com.github.iboyperson.ulauncher-system": {
+    "id": "com.github.iboyperson.ulauncher-system",
+    "url": "https://github.com/iboyperson/ulauncher-system",
+    "updated_at": "2024-03-19T14:39:02.760691",
+    "last_commit": "7dedd992709fa2297735cddf852404144d4da47c",
+    "last_commit_time": "2023-11-14T16:53:20"
+  },
+  "com.github.ondrejhajek.ulauncher-unotionplus": {
+    "id": "com.github.ondrejhajek.ulauncher-unotionplus",
+    "url": "https://github.com/ondrejhajek/ulauncher-unotionplus",
+    "updated_at": "2024-03-19T14:39:04.039152",
+    "last_commit": "41a1a00f4e4e502c17564f9feae4ef98a68fdaa7",
+    "last_commit_time": "2023-11-16T22:59:13"
+  }
 }

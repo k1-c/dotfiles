@@ -1,32 +1,32 @@
 {
-    "bf9c1d0d-8014-4f36-9f71-41e1a2500dc9": {
-        "id": "bf9c1d0d-8014-4f36-9f71-41e1a2500dc9",
-        "name": "Google Search",
-        "keyword": "g",
-        "cmd": "https://google.com/search?q=%s",
-        "icon": "/usr/share/ulauncher/media/google-search-icon.png",
-        "is_default_search": true,
-        "run_without_argument": false,
-        "added": 1672723552.7707245
-    },
-    "3aeb8ae7-9355-4186-a952-0d19b229b216": {
-        "id": "3aeb8ae7-9355-4186-a952-0d19b229b216",
-        "name": "Deno Running Test",
-        "keyword": "deno",
-        "cmd": "#! /usr/bin/env -S deno run --allow-all\nimport $ from \"https://deno.land/x/dax/mod.ts\";\nawait $`obsidian`;",
-        "icon": null,
-        "is_default_search": false,
-        "run_without_argument": true,
-        "added": 1677427143.0940058
-    },
-    "a6deaa90-92c7-480a-9c94-8cd7ee14b0aa": {
-        "id": "a6deaa90-92c7-480a-9c94-8cd7ee14b0aa",
-        "name": "Bash Test",
-        "keyword": "bash",
-        "cmd": "#!/usr/bin/bash\nfigma-linux",
-        "icon": null,
-        "is_default_search": false,
-        "run_without_argument": true,
-        "added": 1677427752.8034015
-    }
+  "bf9c1d0d-8014-4f36-9f71-41e1a2500dc9": {
+    "id": "bf9c1d0d-8014-4f36-9f71-41e1a2500dc9",
+    "name": "Google Search",
+    "keyword": "g",
+    "cmd": "https://google.com/search?q=%s",
+    "icon": "/usr/share/ulauncher/media/google-search-icon.png",
+    "is_default_search": true,
+    "run_without_argument": false,
+    "added": 1672723552.7707245
+  },
+  "3aeb8ae7-9355-4186-a952-0d19b229b216": {
+    "id": "3aeb8ae7-9355-4186-a952-0d19b229b216",
+    "name": "Deno Running Test",
+    "keyword": "deno",
+    "cmd": "#! /usr/bin/env -S deno run --allow-all\nimport $ from \"https://deno.land/x/dax/mod.ts\";\nawait $`obsidian`;",
+    "icon": null,
+    "is_default_search": false,
+    "run_without_argument": true,
+    "added": 1677427143.0940058
+  },
+  "a6deaa90-92c7-480a-9c94-8cd7ee14b0aa": {
+    "id": "a6deaa90-92c7-480a-9c94-8cd7ee14b0aa",
+    "name": "Bash Test",
+    "keyword": "bash",
+    "cmd": "#!/usr/bin/bash\nfigma-linux",
+    "icon": null,
+    "is_default_search": false,
+    "run_without_argument": true,
+    "added": 1677427752.8034015
+  }
 }

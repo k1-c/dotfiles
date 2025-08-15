@@ -13,7 +13,7 @@ await backupDir.ensureDir();
 async function register(origin: string, target: string) {
   const targetPath = $.path(target);
   const originPath = $.path(origin);
-  
+
   // Backup existing file if it exists and is not a symlink
   if (await targetPath.exists()) {
     const stat = await targetPath.lstat();
@@ -24,10 +24,10 @@ async function register(origin: string, target: string) {
       await targetPath.remove();
     }
   }
-  
+
   // Ensure parent directory exists
   await targetPath.parent()!.ensureDir();
-  
+
   // Create symlink
   await targetPath.createSymlinkTo(originPath.toString());
   console.log(`🔗 Linked ${target} -> ${origin}`);
@@ -38,7 +38,7 @@ console.log("🔧 Setting up configuration symlinks...");
 // Git
 await register(
   srcPath.join("git/.gitconfig").toString(),
-  homeDir.join(".gitconfig").toString()
+  homeDir.join(".gitconfig").toString(),
 );
 
 // Fish shell configuration
@@ -50,27 +50,27 @@ await fishConfigDir.join("functions").ensureDir();
 
 await register(
   srcPath.join("fish/completions/fisher.fish").toString(),
-  fishConfigDir.join("completions/fisher.fish").toString()
+  fishConfigDir.join("completions/fisher.fish").toString(),
 );
 await register(
   srcPath.join("fish/completions/poetry.fish").toString(),
-  fishConfigDir.join("completions/poetry.fish").toString()
+  fishConfigDir.join("completions/poetry.fish").toString(),
 );
 await register(
   srcPath.join("fish/conf.d/omf.fish").toString(),
-  fishConfigDir.join("conf.d/omf.fish").toString()
+  fishConfigDir.join("conf.d/omf.fish").toString(),
 );
 await register(
   srcPath.join("fish/functions/fisher.fish").toString(),
-  fishConfigDir.join("functions/fisher.fish").toString()
+  fishConfigDir.join("functions/fisher.fish").toString(),
 );
 await register(
   srcPath.join("fish/config.fish").toString(),
-  fishConfigDir.join("config.fish").toString()
+  fishConfigDir.join("config.fish").toString(),
 );
 await register(
   srcPath.join("fish/fish_variables").toString(),
-  fishConfigDir.join("fish_variables").toString()
+  fishConfigDir.join("fish_variables").toString(),
 );
 
 // Neovim
@@ -81,11 +81,11 @@ await vimAutoloadDir.ensureDir();
 
 await register(
   srcPath.join("nvim/init.lua").toString(),
-  nvimConfigDir.join("init.lua").toString()
+  nvimConfigDir.join("init.lua").toString(),
 );
 await register(
   srcPath.join("nvim/coc-settings.json").toString(),
-  nvimConfigDir.join("coc-settings.json").toString()
+  nvimConfigDir.join("coc-settings.json").toString(),
 );
 
 // Tmux
@@ -94,11 +94,11 @@ await tmuxDir.ensureDir();
 
 await register(
   srcPath.join("tmux/.tmux.conf").toString(),
-  homeDir.join(".tmux.conf").toString()
+  homeDir.join(".tmux.conf").toString(),
 );
 await register(
   srcPath.join("tmux/new-session.sh").toString(),
-  tmuxDir.join("new-session.sh").toString()
+  tmuxDir.join("new-session.sh").toString(),
 );
 
 // Obsidian (TODO: Make vault path dynamic)
@@ -106,7 +106,7 @@ const obsidianVimrcPath = homeDir.join("Documents/Primary/.obsidian.vimrc");
 await obsidianVimrcPath.parent()!.ensureDir();
 await register(
   srcPath.join("obsidian/.obsidian.vimrc").toString(),
-  obsidianVimrcPath.toString()
+  obsidianVimrcPath.toString(),
 );
 
 // Ulauncher
@@ -115,15 +115,15 @@ await ulauncherConfigDir.ensureDir();
 
 await register(
   srcPath.join("ulauncher/extensions.json").toString(),
-  ulauncherConfigDir.join("extensions.json").toString()
+  ulauncherConfigDir.join("extensions.json").toString(),
 );
 await register(
   srcPath.join("ulauncher/settings.json").toString(),
-  ulauncherConfigDir.join("settings.json").toString()
+  ulauncherConfigDir.join("settings.json").toString(),
 );
 await register(
   srcPath.join("ulauncher/shortcuts.json").toString(),
-  ulauncherConfigDir.join("shortcuts.json").toString()
+  ulauncherConfigDir.join("shortcuts.json").toString(),
 );
 
 // VSCode
@@ -132,15 +132,15 @@ await vscodeUserDir.ensureDir();
 
 await register(
   srcPath.join("vscode/User/extensions").toString(),
-  vscodeUserDir.join("extensions").toString()
+  vscodeUserDir.join("extensions").toString(),
 );
 await register(
   srcPath.join("vscode/User/keybindings.json").toString(),
-  vscodeUserDir.join("keybindings.json").toString()
+  vscodeUserDir.join("keybindings.json").toString(),
 );
 await register(
   srcPath.join("vscode/User/settings.json").toString(),
-  vscodeUserDir.join("settings.json").toString()
+  vscodeUserDir.join("settings.json").toString(),
 );
 
 // GitUI
@@ -149,21 +149,21 @@ await gituiConfigDir.ensureDir();
 
 await register(
   srcPath.join("gitui/key_bindings.ron").toString(),
-  gituiConfigDir.join("key_bindings.ron").toString()
+  gituiConfigDir.join("key_bindings.ron").toString(),
 );
 await register(
   srcPath.join("gitui/theme.ron").toString(),
-  gituiConfigDir.join("theme.ron").toString()
+  gituiConfigDir.join("theme.ron").toString(),
 );
 
 // Zsh
 await register(
   srcPath.join("zsh/.zshrc").toString(),
-  homeDir.join(".zshrc").toString()
+  homeDir.join(".zshrc").toString(),
 );
 await register(
   srcPath.join("zsh/.p10k.zsh").toString(),
-  homeDir.join(".p10k.zsh").toString()
+  homeDir.join(".p10k.zsh").toString(),
 );
 
 // Clean up empty backup directory

@@ -1,5 +1,5 @@
 import $ from "https://deno.land/x/dax@0.39.2/mod.ts";
-import { assertEquals, assert } from "https://deno.land/std@0.213.0/assert/mod.ts";
+import { assert } from "https://deno.land/std@0.213.0/assert/mod.ts";
 
 const homeDir = $.path(Deno.env.get("HOME")!);
 
@@ -39,19 +39,31 @@ Deno.test("Deno is installed", async () => {
 
 // Test configuration files
 Deno.test("Git config exists", async () => {
-  assert(await homeDir.join(".gitconfig").exists(), "Git config file should exist");
+  assert(
+    await homeDir.join(".gitconfig").exists(),
+    "Git config file should exist",
+  );
 });
 
 Deno.test("Fish config exists", async () => {
-  assert(await homeDir.join(".config/fish/config.fish").exists(), "Fish config file should exist");
+  assert(
+    await homeDir.join(".config/fish/config.fish").exists(),
+    "Fish config file should exist",
+  );
 });
 
 Deno.test("Neovim config exists", async () => {
-  assert(await homeDir.join(".config/nvim/init.lua").exists(), "Neovim config file should exist");
+  assert(
+    await homeDir.join(".config/nvim/init.lua").exists(),
+    "Neovim config file should exist",
+  );
 });
 
 Deno.test("Tmux config exists", async () => {
-  assert(await homeDir.join(".tmux.conf").exists(), "Tmux config file should exist");
+  assert(
+    await homeDir.join(".tmux.conf").exists(),
+    "Tmux config file should exist",
+  );
 });
 
 Deno.test("Zsh config exists", async () => {

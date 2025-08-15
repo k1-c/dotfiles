@@ -6,12 +6,15 @@
 
 ![logo](./assets/logo.png)
 
-Modern dotfiles setup powered by Deno and TypeScript for a streamlined development environment.
+Modern dotfiles setup powered by Deno and TypeScript for a streamlined
+development environment.
 
 ## ✨ Features
 
-- 🚀 **One-line installation** - Get started instantly with a single curl command
-- 🦕 **Deno-powered** - All installation scripts written in TypeScript with [dax](https://github.com/dsherret/dax)
+- 🚀 **One-line installation** - Get started instantly with a single curl
+  command
+- 🦕 **Deno-powered** - All installation scripts written in TypeScript with
+  [dax](https://github.com/dsherret/dax)
 - 🔧 **Comprehensive tooling** - Pre-configured development tools and languages
 - 🎨 **Fish shell** - Modern shell with powerful features and auto-completion
 - 📝 **Neovim setup** - Optimized editor configuration
@@ -53,13 +56,16 @@ flowchart TD
 ## 🛠️ What Gets Installed
 
 ### Development Languages & Tools
+
 - **Languages**: Python (pyenv), Ruby (rbenv), Rust, Go, Node.js
-- **Version Managers**: [proto](https://github.com/moonrepo/proto) for unified language management
+- **Version Managers**: [proto](https://github.com/moonrepo/proto) for unified
+  language management
 - **Shell**: Fish shell with modern features
 - **Editor**: Neovim with optimized configuration
 - **Terminal**: Tmux for session management
 
 ### Development Tools
+
 - **Git** with custom configuration
 - **Docker** and Docker Compose
 - **GitHub CLI** for seamless GitHub integration
@@ -67,6 +73,7 @@ flowchart TD
 - **ghq** for repository management
 
 ### Fonts & UI
+
 - **Nerd Fonts** (Hack) for terminal icons
 - **GitUI** for terminal-based Git interface
 - **Ulauncher** application launcher configuration
@@ -116,17 +123,17 @@ deno task fonts
 deno test --allow-all
 
 # Docker testing
-deno task test:docker run full
-deno task test:docker validate
+deno task test:docker
+deno task test:docker:integration
 ```
 
 ## 🖥️ Supported Environment
 
-| Component | Version/Details |
-|-----------|----------------|
-| **OS** | Linux (Ubuntu 22.04+) |
-| **Shell** | Fish (default) |
-| **Runtime** | Deno (installed via proto) |
+| Component     | Version/Details                 |
+| ------------- | ------------------------------- |
+| **OS**        | Linux (Ubuntu 22.04+)           |
+| **Shell**     | Fish (default)                  |
+| **Runtime**   | Deno (installed via proto)      |
 | **Languages** | Python, Ruby, Rust, Go, Node.js |
 
 ## 🔧 Customization
@@ -168,29 +175,24 @@ deno test --allow-all --reporter=verbose
 Test the installation in a clean Docker environment:
 
 ```bash
-# Test full installation
-deno task test:docker run full
+# Basic Docker tests (build, config validation, etc.)
+deno task test:docker
 
 # Test individual components
-deno task test:docker run preinstall
-deno task test:docker run config
-deno task test:docker run vscode
-deno task test:docker run fonts
+deno task test:docker:components
+
+# Full integration test (installs and validates everything)
+deno task test:docker:integration
 
 # Interactive testing environment
-deno task test:docker run interactive
-
-# Run validation tests after installation
-deno task test:docker validate
-
-# Clean up Docker resources
-deno task test:docker cleanup
+deno task test:docker:interactive
 ```
 
 ### Manual Docker Testing
 
 ```bash
 # Build and run with docker-compose
+cd tests/environment
 docker-compose up --build dotfiles-test
 
 # Interactive debugging

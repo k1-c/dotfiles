@@ -29,7 +29,8 @@ await $`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dea
 await $`sudo chmod a+r /etc/apt/keyrings/docker.gpg`;
 
 const arch = await $`dpkg --print-architecture`.text();
-const versionCodename = await $`. /etc/os-release && echo "$VERSION_CODENAME"`.text();
+const versionCodename = await $`. /etc/os-release && echo "$VERSION_CODENAME"`
+  .text();
 
 await $`echo "deb [arch=${arch.trim()} signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu ${versionCodename.trim()} stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null`;
 await $`sudo apt-get update`;
@@ -49,12 +50,12 @@ const tools = [
   "docker-compose",
   "neovim",
   "xclip",
-  "tmux", 
+  "tmux",
   "peco",
   "xdotool",
   "compiz",
   "fzf",
-  "ripgrep"
+  "ripgrep",
 ];
 
 for (const tool of tools) {
@@ -70,7 +71,7 @@ await $`go install github.com/x-motemen/ghq@latest`;
 console.log("📦 Installing Node.js tools...");
 try {
   await $`sudo npm i -g @antfu/ni`;
-} catch (error) {
+} catch (_error) {
   console.log("⚠️ Skipping npm tools installation (npm not found)");
 }
 
