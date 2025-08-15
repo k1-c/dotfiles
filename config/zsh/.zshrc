@@ -123,7 +123,7 @@ export PROTO_HOME="$HOME/.proto"
 export PATH="$PROTO_HOME/bin/:$PATH"
 export PATH="$PROTO_HOME/shims:$PROTO:$PATH"
 export PATH=$PATH:`npm prefix --location=global`/bin
-export PATH="$PROTO_HOME/tools/node/23.8.0/bin:$PATH"
+# export PATH="$PROTO_HOME/tools/node/23.8.0/bin:$PATH"
 
 ## Golang
 export GOPATH=$HOME/.go
@@ -194,3 +194,5 @@ export QT_QPA_PLATFORM=xcb
 
 # Load local environment variables
 source ~/env.local.sh
+
+[ -f "/home/k1-c/.ghcup/env" ] && . "/home/k1-c/.ghcup/env" # ghcup-envsource ~/.ghcup/env

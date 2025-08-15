@@ -2,21 +2,23 @@
   "explorer.file.showHiddenFiles": true,
   "eslint.autoFixOnSave": true,
   "coc.preferences.formatOnType": true,
-  "intelephense.diagnostics.undefinedTypes": false,
-  "intelephense.diagnostics.undefinedFunctions": false,
-  "intelephense.diagnostics.undefinedConstants": false,
-  "intelephense.diagnostics.undefinedClassConstants": false,
-  "intelephense.diagnostics.undefinedMethods": false,
-  "intelephense.diagnostics.undefinedProperties": false,
-  "intelephense.diagnostics.undefinedVariables": true,
   "explorer.width": 36,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "cSpell.userWords": [
-    "Usecase",
-    "pnpm",
-    "tailwindcss",
-    "varchar"
-  ]
+  "cSpell.userWords": ["Usecase", "pnpm", "tailwindcss", "upsert", "varchar"],
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": ["haskell", "lhaskell"]
+    }
+  }
 }
