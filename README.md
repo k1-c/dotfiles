@@ -175,17 +175,17 @@ deno test --allow-all --reporter=verbose
 Test the installation in a clean Docker environment:
 
 ```bash
-# Basic Docker tests (build, config validation, etc.)
-deno task test:docker
+# Basic Docker environment tests
+deno test --allow-all tests/docker.test.ts
 
-# Test individual components
-deno task test:docker:components
+# Full integration test with components
+TEST_INDIVIDUAL_COMPONENTS=true deno test --allow-all tests/docker.test.ts
 
-# Full integration test (installs and validates everything)
-deno task test:docker:integration
+# Complete installation test
+RUN_DOCKER_INTEGRATION_TESTS=true deno test --allow-all tests/docker.test.ts
 
-# Interactive testing environment
-deno task test:docker:interactive
+# Interactive development environment
+START_INTERACTIVE_ENV=true deno test --allow-all tests/docker.test.ts
 ```
 
 ### Manual Docker Testing

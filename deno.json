@@ -4,11 +4,7 @@
     "config": "deno run --allow-all lib/config.ts",
     "preinstall": "deno run --allow-all lib/preinstall.ts",
     "vscode": "deno run --allow-all lib/vscode.ts",
-    "fonts": "deno run --allow-all lib/fonts.ts",
-    "test:docker": "deno test --allow-all tests/docker.test.ts",
-    "test:docker:components": "TEST_INDIVIDUAL_COMPONENTS=true deno test --allow-all tests/docker.test.ts",
-    "test:docker:integration": "RUN_DOCKER_INTEGRATION_TESTS=true deno test --allow-all tests/docker.test.ts",
-    "test:docker:interactive": "START_INTERACTIVE_ENV=true deno test --allow-all tests/docker.test.ts"
+    "fonts": "deno run --allow-all lib/fonts.ts"
   },
   "imports": {
     "$": "https://deno.land/x/dax@0.39.2/mod.ts"
