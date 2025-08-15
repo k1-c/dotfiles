@@ -1,0 +1,17 @@
+{
+  "tasks": {
+    "install": "deno run --allow-all lib/install.ts",
+    "config": "deno run --allow-all lib/config.ts",
+    "preinstall": "deno run --allow-all lib/preinstall.ts",
+    "vscode": "deno run --allow-all lib/vscode.ts",
+    "fonts": "deno run --allow-all lib/fonts.ts",
+    "test:docker": "deno run --allow-all tests/docker-test.ts",
+    "test:docker:build": "deno run --allow-all tests/docker-test.ts build",
+    "test:docker:run": "deno run --allow-all tests/docker-test.ts run",
+    "test:docker:validate": "deno run --allow-all tests/docker-test.ts validate",
+    "test:docker:cleanup": "deno run --allow-all tests/docker-test.ts cleanup"
+  },
+  "imports": {
+    "$": "https://deno.land/x/dax@0.39.2/mod.ts"
+  }
+}

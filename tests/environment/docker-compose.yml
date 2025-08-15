@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  # Full installation test
+  dotfiles-test:
+    build:
+      context: ../..
+      dockerfile: tests/environment/Dockerfile
+    container_name: dotfiles-test
+    volumes:
+      - ../..:/home/testuser/dotfiles
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+    tty: true
+    stdin_open: true
+
+  # Interactive testing environment
+  dotfiles-dev:
+    build:
+      context: ../..
+      dockerfile: tests/environment/Dockerfile
+    container_name: dotfiles-dev
+    volumes:
+      - ../..:/home/testuser/dotfiles
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+    tty: true
+    stdin_open: true
+    command: /bin/bash
+
+  # Test individual components
+  test-preinstall:
+    build:
+      context: ../..
+      dockerfile: tests/environment/Dockerfile
+    container_name: dotfiles-test-preinstall
+    volumes:
+      - ../..:/home/testuser/dotfiles
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+    command: bash -c "curl -fsSL https://moonrepo.dev/install/proto.sh | bash -s -- --yes && export PATH=\"$HOME/.proto/bin:$PATH\" && proto install deno && deno task preinstall"
+
+  test-config:
+    build:
+      context: ../..
+      dockerfile: tests/environment/Dockerfile
+    container_name: dotfiles-test-config
+    volumes:
+      - ../..:/home/testuser/dotfiles
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+    command: bash -c "curl -fsSL https://moonrepo.dev/install/proto.sh | bash -s -- --yes && export PATH=\"$HOME/.proto/bin:$PATH\" && proto install deno && deno task config"
+
+  test-vscode:
+    build:
+      context: ../..
+      dockerfile: tests/environment/Dockerfile
+    container_name: dotfiles-test-vscode
+    volumes:
+      - ../..:/home/testuser/dotfiles
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+    command: bash -c "curl -fsSL https://moonrepo.dev/install/proto.sh | bash -s -- --yes && export PATH=\"$HOME/.proto/bin:$PATH\" && proto install deno && deno task vscode"
+
+  test-fonts:
+    build:
+      context: ../..
+      dockerfile: tests/environment/Dockerfile
+    container_name: dotfiles-test-fonts
+    volumes:
+      - ../..:/home/testuser/dotfiles
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+    command: bash -c "curl -fsSL https://moonrepo.dev/install/proto.sh | bash -s -- --yes && export PATH=\"$HOME/.proto/bin:$PATH\" && proto install deno && deno task fonts"

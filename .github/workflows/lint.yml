@@ -1,0 +1,43 @@
+name: Lint
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      
+      - name: Format check
+        run: |
+          deno fmt --check
+          if [ $? -ne 0 ]; then
+            echo "::error::Code formatting issues found. Run 'deno fmt' to fix."
+            exit 1
+          fi
+      
+      - name: Lint
+        run: |
+          deno lint
+          if [ $? -ne 0 ]; then
+            echo "::error::Linting issues found. Fix the issues reported above."
+            exit 1
+          fi
+      
+      - name: Type check
+        run: |
+          deno check **/*.ts
+          if [ $? -ne 0 ]; then
+            echo "::error::Type checking failed. Fix the type errors reported above."
+            exit 1
+          fi

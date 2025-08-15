@@ -1,0 +1,113 @@
+name: Test
+
+on:
+  push:
+    branches: [ main, deno ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      
+      - name: Setup Proto
+        run: |
+          curl -fsSL https://moonrepo.dev/install/proto.sh | bash -s -- --yes
+          echo "$HOME/.proto/bin" >> $GITHUB_PATH
+      
+      - name: Check formatting
+        run: deno fmt --check
+      
+      - name: Run linter
+        run: deno lint
+      
+      - name: Type check
+        run: deno check **/*.ts
+      
+      - name: Run tests
+        run: deno test --allow-all
+      
+      - name: Test installation script
+        run: |
+          bash install.sh --help || true
+  
+  docker-test:
+    name: Docker Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Run Docker tests
+        run: deno test --allow-all tests/docker.test.ts
+      
+      - name: Build Docker image
+        run: |
+          cd tests/environment
+          docker-compose build dotfiles-test
+      
+      - name: Test installation in Docker
+        run: |
+          cd tests/environment
+          docker-compose run --rm dotfiles-test bash -c "cd /home/testuser/dotfiles && bash install.sh"
+        timeout-minutes: 10
+  
+  integration-test:
+    name: Integration Test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup environment
+        run: |
+          # Install proto
+          curl -fsSL https://moonrepo.dev/install/proto.sh | bash -s -- --yes
+          echo "$HOME/.proto/bin" >> $GITHUB_PATH
+          
+          # Install Deno via proto
+          export PATH="$HOME/.proto/bin:$PATH"
+          proto install deno
+      
+      - name: Run installation
+        run: |
+          export PATH="$HOME/.proto/bin:$PATH"
+          deno run --allow-all lib/install.ts
+        timeout-minutes: 15
+      
+      - name: Validate installation
+        run: |
+          export PATH="$HOME/.proto/bin:$PATH"
+          deno test --allow-all tests/test.ts
+      
+      - name: Check installed tools
+        run: |
+          echo "=== Checking installed tools ==="
+          command -v proto && proto --version || echo "proto not found"
+          command -v deno && deno --version || echo "deno not found"
+          command -v git && git --version || echo "git not found"
+          command -v docker && docker --version || echo "docker not found"
+          ls -la ~/.gitconfig || echo "Git config not found"
+          ls -la ~/.config/fish/config.fish || echo "Fish config not found"
