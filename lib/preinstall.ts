@@ -56,6 +56,7 @@ const tools = [
   "compiz",
   "fzf",
   "ripgrep",
+  "zsh",
 ];
 
 for (const tool of tools) {
@@ -73,6 +74,53 @@ try {
   await $`sudo npm i -g @antfu/ni`;
 } catch (_error) {
   console.log("⚠️ Skipping npm tools installation (npm not found)");
+}
+
+// Install Oh My Zsh
+console.log("🐚 Installing Oh My Zsh...");
+const homeDir = Deno.env.get("HOME");
+const ohmyzshDir = `${homeDir}/.oh-my-zsh`;
+
+// Check if Oh My Zsh is already installed
+try {
+  await Deno.stat(ohmyzshDir);
+  console.log("⚠️ Oh My Zsh already installed, skipping");
+} catch {
+  // Install Oh My Zsh
+  await $`sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended`;
+}
+
+// Install Powerlevel10k theme
+console.log("⚡ Installing Powerlevel10k theme...");
+const p10kDir = `${homeDir}/.oh-my-zsh/custom/themes/powerlevel10k`;
+
+try {
+  await Deno.stat(p10kDir);
+  console.log("⚠️ Powerlevel10k already installed, skipping");
+} catch {
+  await $`git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${p10kDir}`;
+}
+
+// Install Oh My Zsh plugins
+console.log("🔌 Installing Oh My Zsh plugins...");
+const pluginsDir = `${homeDir}/.oh-my-zsh/custom/plugins`;
+
+// zsh-autosuggestions
+const autosuggestionsDir = `${pluginsDir}/zsh-autosuggestions`;
+try {
+  await Deno.stat(autosuggestionsDir);
+  console.log("⚠️ zsh-autosuggestions already installed, skipping");
+} catch {
+  await $`git clone https://github.com/zsh-users/zsh-autosuggestions ${autosuggestionsDir}`;
+}
+
+// zsh-syntax-highlighting
+const syntaxHighlightingDir = `${pluginsDir}/zsh-syntax-highlighting`;
+try {
+  await Deno.stat(syntaxHighlightingDir);
+  console.log("⚠️ zsh-syntax-highlighting already installed, skipping");
+} catch {
+  await $`git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${syntaxHighlightingDir}`;
 }
 
 console.log("✅ Preinstall completed!");

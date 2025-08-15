@@ -41,37 +41,6 @@ await register(
   homeDir.join(".gitconfig").toString(),
 );
 
-// Fish shell configuration
-const fishConfigDir = homeDir.join(".config/fish");
-await fishConfigDir.ensureDir();
-await fishConfigDir.join("completions").ensureDir();
-await fishConfigDir.join("conf.d").ensureDir();
-await fishConfigDir.join("functions").ensureDir();
-
-await register(
-  srcPath.join("fish/completions/fisher.fish").toString(),
-  fishConfigDir.join("completions/fisher.fish").toString(),
-);
-await register(
-  srcPath.join("fish/completions/poetry.fish").toString(),
-  fishConfigDir.join("completions/poetry.fish").toString(),
-);
-await register(
-  srcPath.join("fish/conf.d/omf.fish").toString(),
-  fishConfigDir.join("conf.d/omf.fish").toString(),
-);
-await register(
-  srcPath.join("fish/functions/fisher.fish").toString(),
-  fishConfigDir.join("functions/fisher.fish").toString(),
-);
-await register(
-  srcPath.join("fish/config.fish").toString(),
-  fishConfigDir.join("config.fish").toString(),
-);
-await register(
-  srcPath.join("fish/fish_variables").toString(),
-  fishConfigDir.join("fish_variables").toString(),
-);
 
 // Neovim
 const nvimConfigDir = homeDir.join(".config/nvim");

@@ -45,12 +45,6 @@ Deno.test("Git config exists", async () => {
   );
 });
 
-Deno.test("Fish config exists", async () => {
-  assert(
-    await homeDir.join(".config/fish/config.fish").exists(),
-    "Fish config file should exist",
-  );
-});
 
 Deno.test("Neovim config exists", async () => {
   assert(
@@ -68,6 +62,10 @@ Deno.test("Tmux config exists", async () => {
 
 Deno.test("Zsh config exists", async () => {
   assert(await homeDir.join(".zshrc").exists(), "Zsh config file should exist");
+});
+
+Deno.test("Powerlevel10k config exists", async () => {
+  assert(await homeDir.join(".p10k.zsh").exists(), "Powerlevel10k config file should exist");
 });
 
 // Test installed tools
@@ -104,15 +102,38 @@ Deno.test("fzf is installed", async () => {
   assert(await commandExists("fzf"), "fzf command should be available");
 });
 
+Deno.test("Zsh is installed", async () => {
+  assert(await commandExists("zsh"), "zsh command should be available");
+});
+
+Deno.test("Oh My Zsh is installed", async () => {
+  assert(
+    await homeDir.join(".oh-my-zsh").exists(),
+    "Oh My Zsh directory should exist",
+  );
+});
+
+Deno.test("Powerlevel10k theme is installed", async () => {
+  assert(
+    await homeDir.join(".oh-my-zsh/custom/themes/powerlevel10k").exists(),
+    "Powerlevel10k theme should be installed",
+  );
+});
+
 // Test symlinks
 Deno.test("Git config is symlinked", async () => {
   const gitConfigPath = homeDir.join(".gitconfig").toString();
   assert(await isSymlinked(gitConfigPath), "Git config should be symlinked");
 });
 
-Deno.test("Fish config is symlinked", async () => {
-  const fishConfigPath = homeDir.join(".config/fish/config.fish").toString();
-  assert(await isSymlinked(fishConfigPath), "Fish config should be symlinked");
+Deno.test("Zsh config is symlinked", async () => {
+  const zshConfigPath = homeDir.join(".zshrc").toString();
+  assert(await isSymlinked(zshConfigPath), "Zsh config should be symlinked");
+});
+
+Deno.test("Powerlevel10k config is symlinked", async () => {
+  const p10kConfigPath = homeDir.join(".p10k.zsh").toString();
+  assert(await isSymlinked(p10kConfigPath), "Powerlevel10k config should be symlinked");
 });
 
 // Test language installations

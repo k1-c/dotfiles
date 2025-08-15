@@ -44,7 +44,8 @@ jobs:
       
       - name: Validate installation with tests
         run: |
-          export PATH="$HOME/.proto/bin:$PATH"
+          export PATH="$HOME/.proto/bin:$HOME/.cargo/bin:$PATH"
+          source "$HOME/.cargo/env" || true
           deno test --allow-all tests/test.ts
       
       - name: Check core tools are available
@@ -54,7 +55,8 @@ jobs:
           $HOME/.proto/bin/deno --version
           git --version
           test -f ~/.gitconfig && echo "✅ Git config exists"
-          test -f ~/.config/fish/config.fish && echo "✅ Fish config exists" 
+          test -f ~/.zshrc && echo "✅ Zsh config exists"
+          test -f ~/.p10k.zsh && echo "✅ Powerlevel10k config exists"
           test -f ~/.config/nvim/init.lua && echo "✅ Neovim config exists"
           test -f ~/.tmux.conf && echo "✅ Tmux config exists"
 

@@ -30,5 +30,5 @@ COPY --chown=testuser:testuser . $HOME/dotfiles/
 # Set working directory to dotfiles
 WORKDIR $HOME/dotfiles
 
-# Default command runs the installation
-CMD ["bash", "./install.sh"]
+# Default command runs the installation and tests
+CMD ["bash", "-c", "./install.sh && export PATH=\"$HOME/.proto/bin:$HOME/.cargo/bin:$PATH\" && source \"$HOME/.cargo/env\" || true && deno test --allow-all tests/test.ts"]
