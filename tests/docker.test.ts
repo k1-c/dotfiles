@@ -125,50 +125,74 @@ Deno.test({
 // Component tests
 Deno.test({
   name: "Test preinstall component in Docker",
-  ignore: skipDockerTests || Deno.env.get("TEST_INDIVIDUAL_COMPONENTS") !== "true",
+  ignore: skipDockerTests ||
+    Deno.env.get("TEST_INDIVIDUAL_COMPONENTS") !== "true",
   sanitizeOps: false,
   sanitizeResources: false,
   fn: async () => {
-    const result = await $`docker-compose -f ${dockerComposeFile} up --build test-preinstall`.noThrow();
+    const result =
+      await $`docker-compose -f ${dockerComposeFile} up --build test-preinstall`
+        .noThrow();
     assertEquals(result.code, 0, "Preinstall should complete successfully");
-    await $`docker-compose -f ${dockerComposeFile} down --remove-orphans`.quiet();
-  }
+    await $`docker-compose -f ${dockerComposeFile} down --remove-orphans`
+      .quiet();
+  },
 });
 
 Deno.test({
   name: "Test config component in Docker",
-  ignore: skipDockerTests || Deno.env.get("TEST_INDIVIDUAL_COMPONENTS") !== "true",
+  ignore: skipDockerTests ||
+    Deno.env.get("TEST_INDIVIDUAL_COMPONENTS") !== "true",
   sanitizeOps: false,
   sanitizeResources: false,
   fn: async () => {
-    const result = await $`docker-compose -f ${dockerComposeFile} up --build test-config`.noThrow();
+    const result =
+      await $`docker-compose -f ${dockerComposeFile} up --build test-config`
+        .noThrow();
     assertEquals(result.code, 0, "Config should complete successfully");
-    await $`docker-compose -f ${dockerComposeFile} down --remove-orphans`.quiet();
-  }
+    await $`docker-compose -f ${dockerComposeFile} down --remove-orphans`
+      .quiet();
+  },
 });
 
 Deno.test({
   name: "Test VSCode component in Docker",
-  ignore: skipDockerTests || Deno.env.get("TEST_INDIVIDUAL_COMPONENTS") !== "true",
+  ignore: skipDockerTests ||
+    Deno.env.get("TEST_INDIVIDUAL_COMPONENTS") !== "true",
   sanitizeOps: false,
   sanitizeResources: false,
   fn: async () => {
-    const result = await $`docker-compose -f ${dockerComposeFile} up --build test-vscode`.noThrow();
-    assertEquals(result.code, 0, "VSCode component should complete successfully");
-    await $`docker-compose -f ${dockerComposeFile} down --remove-orphans`.quiet();
-  }
+    const result =
+      await $`docker-compose -f ${dockerComposeFile} up --build test-vscode`
+        .noThrow();
+    assertEquals(
+      result.code,
+      0,
+      "VSCode component should complete successfully",
+    );
+    await $`docker-compose -f ${dockerComposeFile} down --remove-orphans`
+      .quiet();
+  },
 });
 
 Deno.test({
   name: "Test fonts component in Docker",
-  ignore: skipDockerTests || Deno.env.get("TEST_INDIVIDUAL_COMPONENTS") !== "true",
+  ignore: skipDockerTests ||
+    Deno.env.get("TEST_INDIVIDUAL_COMPONENTS") !== "true",
   sanitizeOps: false,
   sanitizeResources: false,
   fn: async () => {
-    const result = await $`docker-compose -f ${dockerComposeFile} up --build test-fonts`.noThrow();
-    assertEquals(result.code, 0, "Fonts component should complete successfully");
-    await $`docker-compose -f ${dockerComposeFile} down --remove-orphans`.quiet();
-  }
+    const result =
+      await $`docker-compose -f ${dockerComposeFile} up --build test-fonts`
+        .noThrow();
+    assertEquals(
+      result.code,
+      0,
+      "Fonts component should complete successfully",
+    );
+    await $`docker-compose -f ${dockerComposeFile} down --remove-orphans`
+      .quiet();
+  },
 });
 
 // Integration test - only run if explicitly requested via environment variable
@@ -215,9 +239,9 @@ Deno.test({
   fn: async () => {
     console.log("🐳 Starting interactive development environment...");
     console.log("This will start a bash shell in the dotfiles container.");
-    
+
     await $`docker-compose -f ${dockerComposeFile} run --rm dotfiles-dev bash`;
-  }
+  },
 });
 
 // Cleanup test
