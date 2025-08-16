@@ -1,0 +1,10 @@
+[symlinks]
+"config/zsh/.zshrc" = "~/dott-test/zsh/.zshrc"
+"config/nvim" = "~/dott-test/nvim"
+
+[scripts.deps]
+linux = "scripts/test-linux.sh"
+macos = "scripts/test-maxos.sh"
+
+[scripts.custom]
+setup = "scripts/test-custom.sh"
