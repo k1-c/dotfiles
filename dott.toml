@@ -1,6 +1,6 @@
 [symlinks]
-"config/zsh/.zshrc" = "~/dott-test/zsh/.zshrc"
-"config/nvim" = "~/dott-test/nvim"
+"~/dott-test/zsh/.zshrc" = "config/zsh/.zshrc"
+"~/dott-test/nvim" = "config/nvim"
 
 [scripts.deps]
 linux = "scripts/test-linux.sh"
