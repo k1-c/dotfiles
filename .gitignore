@@ -3,3 +3,6 @@
 
 # backup
 .backup
+
+# Claude
+.claude/settings.local.json

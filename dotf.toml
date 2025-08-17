@@ -8,7 +8,7 @@
 "config/ulauncher" = "~/.config/ulauncher"
 "config/vscode" = "~/.config/Code"
 "config/zsh/.zshrc" = "~/.zshrc"
-"config/zsh/.zshenv" = "~/.p10k.zsh"
+"config/zsh/.p10k.zsh" = "~/.p10k.zsh"
 
 [scripts.deps]
 linux = "scripts/install_deps.sh"
