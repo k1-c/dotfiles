@@ -19,9 +19,6 @@ sudo apt-get install -y golang-go
 
 ### Tools
 
-# Git
-sudo apt-get install -y git
-
 # Docker
 sudo apt-get install -y ca-certificates curl gnupg
 sudo install -m 0755 -d /etc/apt/keyrings

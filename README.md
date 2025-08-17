@@ -1,43 +1,59 @@
+<div align="center">
+
 # :gear: Kay's Dotfiles
 
 ![logo](./assets/logo.png)
 
+<p align="center">
+  <em>Personal development environment configuration managed with <a href="https://github.com/k1-c/dotf">dotf</a></em>
+</p>
 
-## :twisted_rightwards_arrows: Workflow
+<p align="center">
+  <img src="https://img.shields.io/badge/dotf-powered-blue?style=for-the-badge" alt="dotf powered">
+  <img src="https://img.shields.io/badge/platform-linux-green?style=for-the-badge" alt="linux">
+</p>
 
-```mermaid
-flowchart LR
-  Start([install.sh as entry point])-->1[Install proto]
-  1-->2[Run installation scripts by Deno]
-```
+</div>
 
-### install.sh
+---
 
-Just run `bin/install.sh`. It will automatically execute all subsequent
-processes.
-
-### Install proto
-
-[proto](https://github.com/moonrepo/proto) is a modern version manager for
-multiple programming languages.
-
-### Run installation scripts by Deno
-
-[Deno](https://deno.com/) installed by proto runs all configurattion setup
-scripts.
-
-## :wrench: Environment
-
-|           |                       |
-| --------- | --------------------- |
-| OS (Base) | Linux (Ubuntu ^22.04) |
-| Shell     | fish                  |
-
-## Setup
+## 🚀 Quick Start
 
 ```bash
-# Clone this repository
-git clone https://github.com/k1-c/dotfiles.git
-# Run install.sh
-bash ./bin/install.sh
+# Install dotf
+cargo install dotf
+
+# Run initialization
+dotf init --repo https://github.com/k1-c/dotfiles.git
 ```
+
+## 📦 What's Included
+
+<table>
+<tr>
+<td>
+
+**🔧 Development**
+- Git configuration
+- Neovim editor setup
+- VSCode settings
+
+</td>
+<td>
+
+**🖥️ Terminal**
+- Zsh with themes
+- Tmux multiplexer
+- Custom scripts
+
+</td>
+<td>
+
+**🎨 Tools**
+- GitUI interface
+- Ulauncher
+- Obsidian notes
+
+</td>
+</tr>
+</table>

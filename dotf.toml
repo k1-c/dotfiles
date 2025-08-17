@@ -1,0 +1,18 @@
+[symlinks]
+"config/git/.gitconfig" = "~/.gitconfig"
+"config/gitui" = "~/.config/gitui"
+"config/nvim" = "~/.config/nvim"
+"config/obsidian" = "~/.config/obsidian"
+"config/tmux/.tmux.conf" = "~/.tmux.conf"
+"config/tmux/new-session.sh" = "~/.tmux/new-session.sh"
+"config/ulauncher" = "~/.config/ulauncher"
+"config/vscode" = "~/.config/Code"
+"config/zsh/.zshrc" = "~/.zshrc"
+"config/zsh/.zshenv" = "~/.p10k.zsh"
+
+[scripts.deps]
+linux = "scripts/install_deps.sh"
+
+[scripts.custom]
+nerd_fonts = "scripts/install_nerd_fonts.sh"
+vscode_extension = "scripts/install_vscode_extension.sh"
