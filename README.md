@@ -23,6 +23,9 @@
 # Install dotf
 cargo install dotf
 
+# Or, if you prefer without requiring cargo / rust dependencies:
+curl -sSfL dotf-install.sh | sh
+
 # Run initialization
 dotf init --repo https://github.com/k1-c/dotfiles.git
 ```
