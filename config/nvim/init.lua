@@ -4,6 +4,9 @@ if vim.o.compatible then
   vim.o.compatible = false
 end
 
+-- Leaderを<space>に設定
+vim.g.mapleader = ' '
+
 -- lazy.nvim Init
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -18,7 +21,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Fishだと使えないプラグインがあるのでZshに変更しておく
+-- Vim内で利用するシェルを明示的にZshに変更
 vim.o.shell = '/bin/zsh'
 vim.env.SHELL = '/bin/zsh'
 
@@ -156,44 +159,46 @@ require("lazy").setup({
     build = "yarn install --frozen-lockfile"
   },
 
-  -- AI IDE like Cursor
-  {
-    "yetone/avante.nvim",
-    build = "make",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-    opts = {
-      behavior = {
-        auto_suggestions = true,
-      },
-
-    },
-  },
-
   -- Claude Code
+  "folke/snacks.nvim",
   {
-    "greggh/claude-code.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim", -- Required for git operations
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
+    lazy = false,
+    config = true,
+    opts = {
+      terminal = {
+        split_side = "right",
+        split_width_percentage = 0.35,
+        provider = "auto", -- "auto", "snacks", "native", "external", or custom provider table
+      }
     },
-    config = function()
-      require("claude-code").setup({
-        window = {
-          split_ratio = 0.4,
-          position = "rightbelow vsplit",
-        }
-      })
-      -- Create :CC command as alias for :ClaudeCode
-      vim.api.nvim_create_user_command('CC', 'ClaudeCode', { nargs = 0 })
-      vim.api.nvim_create_user_command('CCC', 'ClaudeCodeContinue', { nargs = 0 })
-    end
+    keys = {
+      { "<leader>a", nil, desc = "AI/Claude Code" },
+      { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
+      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
+      { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+      { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
+      { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
+      { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
+      {
+        "<leader>as",
+        "<cmd>ClaudeCodeTreeAdd<cr>",
+        desc = "Add file",
+        ft = { "NvimTree", "neo-tree", "oil", "minifiles" },
+      },
+      -- Diff management
+      { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+      { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" }
+    },
   }
 })
 
+-- Create :CC command as alias for :ClaudeCode
+vim.api.nvim_create_user_command('CC', 'ClaudeCode', { nargs = 0 })
+vim.api.nvim_create_user_command('CCC', 'ClaudeCode --continue', { nargs = 0 })
+vim.api.nvim_create_user_command('CCR', 'ClaudeCode --resume', { nargs = 0 })
 
 -- Color scheme
 vim.cmd('syntax on')
@@ -214,9 +219,6 @@ vim.cmd([[
 ]])
 
 -- Settings
--- Leaderを<space>に設定
-vim.g.mapleader = ' '
-
 -- バックアップファイルを作らない
 vim.o.backup = false
 -- スワップファイルを作らない
