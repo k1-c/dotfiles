@@ -1,5 +1,9 @@
 sudo apt update
 
+### System Env
+
+sudo apt-get install -y git 
+
 ### Lang Env
 
 # Ruby (rbenv)
@@ -10,6 +14,9 @@ curl https://pyenv.run | bash
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Node
+sudo apt-get install npm
 
 # Deno
 cargo install deno --locked
@@ -57,6 +64,9 @@ sudo apt-get install -y peco
 
 # ghq: https://github.com/x-motemen/ghq
 go install github.com/x-motemen/ghq@latest
+
+# gitui: https://github.com/gitui-org/gitui
+cargo install --locked gitui
 
 # xdotools and compiz to resize window to custom size using shortcuts
 sudo apt-get install -y xdotool compiz
