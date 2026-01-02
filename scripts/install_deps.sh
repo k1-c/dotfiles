@@ -60,7 +60,11 @@ sudo apt-get install -y xclip
 sudo apt-get install -y tmux
 
 # peco: https://github.com/peco/peco
-sudo apt-get install -y peco
+# sudo apt-get install -y peco
+# NOTE: [workaround] apt version is too old
+wget https://github.com/peco/peco/releases/download/v0.5.11/peco_linux_amd64.tar.gz
+tar -xzf peco_linux_amd64.tar.gz
+sudo mv peco_linux_amd64/peco /usr/local/bin/
 
 # ghq: https://github.com/x-motemen/ghq
 go install github.com/x-motemen/ghq@latest
