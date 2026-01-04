@@ -196,3 +196,9 @@ export QT_QPA_PLATFORM=xcb
 source ~/zshrc.local
 
 [ -f "/home/k1-c/.ghcup/env" ] && . "/home/k1-c/.ghcup/env" # ghcup-envsource ~/.ghcup/env
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/k1-c/[A/google-cloud-sdk/path.zsh.inc' ]; then . '/home/k1-c/[A/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/k1-c/[A/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/k1-c/[A/google-cloud-sdk/completion.zsh.inc'; fi

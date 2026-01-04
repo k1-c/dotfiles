@@ -6,7 +6,16 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "cSpell.userWords": ["Usecase", "pnpm", "tailwindcss", "upsert", "varchar"],
+  "cSpell.userWords": [
+    "Usecase",
+    "datahub",
+    "evaluatee",
+    "monthes",
+    "pnpm",
+    "tailwindcss",
+    "upsert",
+    "varchar"
+  ],
   "languageserver": {
     "haskell": {
       "command": "haskell-language-server-wrapper",
