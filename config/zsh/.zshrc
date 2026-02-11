@@ -118,13 +118,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# proto
-export PROTO_HOME="$HOME/.proto"
-export PATH="$PROTO_HOME/bin/:$PATH"
-export PATH="$PROTO_HOME/shims:$PROTO:$PATH"
-export PATH=$PATH:`npm prefix --location=global`/bin
-# export PATH="$PROTO_HOME/tools/node/23.8.0/bin:$PATH"
-
 ## Golang
 export GOPATH=$HOME/.go
 export PATH="/usr/local/go/bin:$GOPATH/bin:$PATH"
@@ -202,3 +195,6 @@ if [ -f '/home/k1-c/[A/google-cloud-sdk/path.zsh.inc' ]; then . '/home/k1-c/[A
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/k1-c/[A/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/k1-c/[A/google-cloud-sdk/completion.zsh.inc'; fi
+
+# mise
+eval "$(~/.local/bin/mise activate zsh)"
