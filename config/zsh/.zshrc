@@ -186,7 +186,7 @@ export QT_QPA_PLATFORM=xcb
 . "$HOME/.cargo/env"
 
 # Load local environment variables
-source ~/zshrc.local
+source ~/.zshrc.local
 
 [ -f "/home/k1-c/.ghcup/env" ] && . "/home/k1-c/.ghcup/env" # ghcup-envsource ~/.ghcup/env
 
