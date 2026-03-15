@@ -152,6 +152,24 @@ function ghq_peco {
 }
 alias j="ghq_peco"
 
+# Search & Clone Remote GitHub Repositories
+function ghq_remote_peco {
+  local query="$1"
+  if [ -z "$query" ]; then
+    echo "Usage: ghq_remote_peco <search_query>"
+    return 1
+  fi
+  local repo="$(gh search repos "$query" --limit 100 --json fullName --jq '.[].fullName' | peco)"
+  if [ -n "$repo" ]; then
+    ghq get "$repo"
+    local dir="$(ghq list -p | grep -F "$repo")"
+    if [ -n "$dir" ]; then
+      cd "$dir"
+    fi
+  fi
+}
+alias ghq-search="ghq_remote_peco"
+
 # use pbcopy on linux
 alias pbcopy="xsel --clipboard --input"
 
